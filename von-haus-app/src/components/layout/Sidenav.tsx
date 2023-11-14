@@ -4,6 +4,7 @@ import { classNames } from '../libs/classes';
 import { VscMenu } from 'react-icons/vsc';
 import SideBarMenuCardView from '../fragments/SideBarMenuCardView';
 import SideBarMenuItemView from '../fragments/SideBarMenuItemView';
+import '../scss/SidebarMenu.scss';
 
 interface SideBarMenuProps {
     items: SideBarMenuItem[],
