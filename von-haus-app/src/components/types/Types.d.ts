@@ -8,7 +8,7 @@ export interface PaginationProps {
     handleNextPage: () => void
 }
 
-export interface SidaBarMenuItem {
+export interface SideBarMenuItem {
     id: string,
     label: string,
     icon: IconType,
@@ -18,7 +18,7 @@ export interface SidaBarMenuItem {
 export interface SideBarMenuCard {
     id: string,
     displayName: string,
-    photo: IconType,
+    photo: string,
     title: string,
     url: string
 }
