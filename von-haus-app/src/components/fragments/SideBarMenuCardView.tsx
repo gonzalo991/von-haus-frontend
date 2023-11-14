@@ -1,6 +1,7 @@
 import React from 'react'
 import { SideBarMenuCard } from '../types/Types';
 import { classNames } from '../libs/classes';
+import '../scss/SideBarMenuCardView.scss';
 
 interface SideBarMenuCardViewProps {
     card: SideBarMenuCard;
@@ -12,7 +13,7 @@ const SideBarMenuCardView: React.FC<SideBarMenuCardViewProps> = ({ card, isOpen 
     return (
         <>
             <div className='SideBardMenuCardView'>
-                <img className="profile" src={card.photo} alt="foto de perfil del panel de administrador" width="100%"/>
+                <img className="profile" src={card.photo} alt={card.displayName} width="100%"/>
                 <div className={classNames('profileInfo', isOpen?'':'collapsed')}>
                     <div className='name'>{card.displayName}</div>
                     <div className='title'>{card.title}</div>

@@ -1,6 +1,7 @@
 import React from 'react';
 import { SideBarMenuItem } from '../types/Types';
 import { classNames } from '../libs/classes';
+import '../scss/SideBarMenuItemView.scss'
 
 interface SideBarMenuItemViewProps {
     item: SideBarMenuItem;
@@ -11,7 +12,7 @@ const SideBarMenuItemView: React.FC<SideBarMenuItemViewProps> = ({ item, isOpen 
 
     return (
         <>
-            <div className='SideBarMenuItem'>
+            <div className='SideBarMenuItemView'>
                 <a href={item.url}>
                     <div className={classNames('ItemContent', isOpen ? '' : 'collapsed')}>
                         <div className='icon'>
