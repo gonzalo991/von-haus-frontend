@@ -1,12 +1,5 @@
 import React from 'react';
-
-interface PaginationProps {
-    totalDePaginas: number,
-    currentPage: number,
-    handleGoToPage: (page: number)=> void,
-    handlePreviousPage: ()=> void,
-    handleNextPage: ()=> void
-}
+import { PaginationProps } from '../types/Types';
 
 const Pagination: React.FC<PaginationProps> = ({ totalDePaginas, currentPage, handleGoToPage, handlePreviousPage, handleNextPage }) => {
     const pageLinks = [];

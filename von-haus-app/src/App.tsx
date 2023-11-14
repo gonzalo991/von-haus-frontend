@@ -1,13 +1,14 @@
 import React from 'react';
-import './App.css'
+import './App.scss';
+import Dashboard from './components/pages/Dashboard';
 
 function App() {
 
   return (
     <>
-        <h1>Hola mundo</h1>
+      <Dashboard />
     </>
   )
 }
 
-export default App
+export default App;
