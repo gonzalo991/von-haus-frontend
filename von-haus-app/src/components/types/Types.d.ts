@@ -19,6 +19,5 @@ export interface SideBarMenuCard {
     id: string,
     displayName: string,
     photo: string,
-    title: string,
-    url: string
+    title: string
 }

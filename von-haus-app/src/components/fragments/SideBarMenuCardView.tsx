@@ -17,7 +17,7 @@ const SideBarMenuCardView: React.FC<SideBarMenuCardViewProps> = ({ card, isOpen 
                 <div className={classNames('profileInfo', isOpen?'':'collapsed')}>
                     <div className='name'>{card.displayName}</div>
                     <div className='title'>{card.title}</div>
-                    <div className='url'><a href={card.url}>Ir al Inicio</a></div>
+                    <div className='panel-text'><p>Panel de Administrador</p></div>
                 </div>
             </div>
         </>

@@ -4,10 +4,10 @@
     text-align: center;
 
     .profile {
-        border-radius: 45%;
+        border-radius: 50%;
         padding: 10px;
         box-sizing: border-box;
-        max-width: 128px;
+        max-width: 200px;
     }
 
     .profileInfo {
@@ -25,13 +25,11 @@
             font-weight: bold;
         }
 
-        .url {
-            a {
-                color: #79a8ff;
-
-                &:hover {
-                    color: white;
-                }
+        .panel-text {
+            p {
+                color: indianred;
+                font-weight: 600;
+                font-size: 18px;
             }
         }
     }
