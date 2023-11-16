@@ -1,9 +1,10 @@
 import React from 'react';
 import Sidenav from '../../layout/Sidenav';
 import { SideBarMenuItem } from '../../types/Types';
-import { FcCameraAddon, FcExport, FcDatabase, FcUpload, FcUpLeft } from "react-icons/fc";
+import { FcCameraAddon, FcExport, FcDatabase, FcUpload } from "react-icons/fc";
 import profileImg from '../../img/logovonhaus.png';
 import { BrowserRouter } from 'react-router-dom';
+import DashboardRouter from './DashboardRouter';
 
 function Dashboard() {
     const items: SideBarMenuItem[] = [
@@ -11,31 +12,25 @@ function Dashboard() {
             id: "1",
             label: "Escribir Articulo",
             icon: FcUpload,
-            url: "/createArt"
+            url: "/publicar"
         },
         {
             id: "2",
             label: "Lista de Articulo",
             icon: FcDatabase,
-            url: "/createArt"
+            url: "/listado"
         },
         {
             id: "3",
             label: "Subir una foto",
             icon: FcCameraAddon,
-            url: "/createArt"
+            url: "/agregarImagen"
         },
         {
             id: "4",
             label: "Salir del Panel",
-            icon: FcUpLeft,
-            url: ""
-        },
-        {
-            id: "4",
-            label: "Cerrar Sesión",
             icon: FcExport,
-            url: ""
+            url: "/"
         }
     ];
 
@@ -51,10 +46,10 @@ function Dashboard() {
             <BrowserRouter>
                 <Sidenav items={items} card={card} />
 
-                <main>
-
+                <main className='dashboard-content'>
+                    <DashboardRouter />
                 </main>
-                
+
             </BrowserRouter>
 
         </>
