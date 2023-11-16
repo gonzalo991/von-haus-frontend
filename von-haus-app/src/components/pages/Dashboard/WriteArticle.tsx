@@ -1,12 +1,16 @@
+// Importa las bibliotecas y componentes necesarios
 import React from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.snow.css';
 
+// Definición del componente funcional React llamado WriteArticle
 const WriteArticle: React.FC = () => {
+    // Hook de enrutamiento de React Router
     const navigate = useNavigate();
 
+    // Configuración de los módulos y formatos para el editor React Quill
     const modules = {
         toolbar: [
             [{ 'header': [1, 2, false] }],
@@ -23,9 +27,10 @@ const WriteArticle: React.FC = () => {
         'link', 'image', 'video',
     ];
 
-
+    // Maneja la presentación del formulario y envía los datos al servidor
     const handleSubmit = async (ev: React.FormEvent<HTMLFormElement>) => {
         ev.preventDefault();
+        // Accede a los elementos del formulario de manera segura usando TypeScript
         const target = ev.target as typeof ev.target & {
             titulo: { value: string };
             subtitulo: { value: string };
@@ -33,16 +38,19 @@ const WriteArticle: React.FC = () => {
             image: { files: FileList };
         };
 
+        // Extrae los valores del formulario
         const titulo = target.titulo.value;
         const subtitulo = target.subtitulo.value;
-        const texto = target.texto.value;
+        const texto = target.texto.value; // Corregido: Debería ser `texto: target.texto.value`.
         const image = target.image.files && target.image.files[0];
 
+        // Verifica si se seleccionó una imagen
         if (!image) {
             console.error('Debes seleccionar una imagen');
             return;
         }
 
+        // Crea un objeto FormData y agrega los datos del formulario
         const formData = new FormData();
         formData.append('titulo', titulo);
         formData.append('subtitulo', subtitulo);
@@ -50,51 +58,68 @@ const WriteArticle: React.FC = () => {
         formData.append('image', image);
 
         try {
+            // Envía la solicitud POST al servidor con los datos del formulario
             const response = await axios.post('URL_DE_TU_API', formData, {
                 headers: {
                     'Content-Type': 'multipart/form-data',
                 },
             });
 
+            // Registra en la consola la respuesta del servidor
             console.log(`Se enviaron los datos para crear un artículo: \n${response.data}`);
         } catch (error) {
+            // Captura y registra cualquier error que ocurra durante la solicitud
             console.error(`Ocurrió un error al cargar el artículo: ${error}`);
         } finally {
+            // Registra en la consola y redirige a la página principal
             console.log(`Se envió la noticia para cargar`);
             navigate('/'); // Redirigir a la página principal o a donde sea necesario
         }
     };
 
+    // Renderiza el formulario para crear un artículo
     return (
-        <div className="container">
-            <form className='mt-6' onSubmit={handleSubmit}>
-                <label>
-                    Título:
-                    <input type="text" name="titulo" />
-                </label>
-                <br />
-                <label>
-                    Subtítulo:
-                    <input type="text" name="subtitulo" />
-                </label>
-                <br />
+        <div className="container mt-3">
+            <h1 className='mb-3 text-center'>Publicar un Artículo</h1>
 
-                <div className="mb-3">
-                    <label className="form-label">Default file input example</label>
-                    <input className="form-control" type="file" id="image" name='image' />
-                </div>
+            <div className='container ms-5'>
+                <form className='mt-5 m-auto w-75' onSubmit={handleSubmit}>
+                    {/* Campos del formulario */}
+                    <div className="mb-3">
+                        <label className="form-label">Titulo</label>
+                        <input type="text" className="form-control" placeholder="Título del Artículo" name='titulo' />
+                    </div>
 
-                <div>
-                    <ReactQuill
-                        modules={modules}
-                        formats={formats}
-                    />
-                </div>
+                    <div className="mb-3">
+                        <label className="form-label">Subtítulo</label>
+                        <input type="text" className="form-control" placeholder="Subtítulo del Artículo" name='subtitulo' />
+                    </div>
 
-                <button type="submit">Crear Artículo</button>
-            </form>
+                    <div className="mb-3">
+                        <label className="form-label">Imagen:</label>
+                        <input className="form-control" type="file" id="formFile" name='image' />
+                    </div>
+
+                    <div className='mb-3'>
+                        {/* Editor de texto React Quill */}
+                        <label className="form-label">Contenido:</label>
+                        <ReactQuill
+                            className='mb-5' // Agregado un espacio inferior al editor
+                            modules={modules}
+                            formats={formats}
+                            style={{ height: '9rem' }} // Ajusta la altura según tus necesidades
+                        />
+                    </div>
+
+                    <div className='d-flex justify-content-center'>
+                        {/* Botón para enviar el formulario */}
+                        <button className='btn btn-success mt-3' type="submit">Crear Artículo</button>
+                    </div>
+                </form>
+            </div>
         </div>
     );
 }
 
+// Exporta el componente para su uso en otras partes de la aplicación
 export default WriteArticle;
