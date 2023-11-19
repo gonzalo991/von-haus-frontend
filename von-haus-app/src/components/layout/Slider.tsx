@@ -29,4 +29,4 @@ const Slider: React.FC = () => {
     )
 }
 
-export default Slider
+export default Slider;

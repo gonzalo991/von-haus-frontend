@@ -1,7 +1,23 @@
-@mixin transition($property){
+@mixin transition($property) {
     transition: $property 0.2s ease-in-out;
 }
 
 @mixin selectFont($property) {
     font-family: $property, serif;
+}
+
+@mixin titleSeparator($fontSize, $marginTop, $lineColor, $lineThickness) {
+    font-size: $fontSize;
+    position: relative;
+    margin-bottom: 1rem;
+
+    &::after {
+        content: '';
+        position: absolute;
+        top: $marginTop;
+        left: 50%;
+        transform: translateX(-50%);
+        border-left: $lineThickness solid $lineColor;
+        height: calc(100% + 20px);
+    }
 }

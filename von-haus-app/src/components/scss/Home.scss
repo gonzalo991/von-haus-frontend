@@ -1,0 +1,77 @@
+@import './commons.scss';
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@500&family=Playfair+Display:ital,wght@1,400;1,500&display=swap');
+
+.home-section {
+    position: relative;
+    overflow: hidden;
+    background: hsl(171, 65%, 78%);
+    position: relative;
+
+    svg {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+    }
+}
+
+
+.home-title {
+    margin-top: 1rem;
+    @include titleSeparator(2.2rem, 4rem, #FFA500, 0.6rem);
+    color: #f69f2d;
+
+    font-weight: bold;
+    @include selectFont('Open Sans');
+}
+
+.home-subtitle {
+    margin-top: 6rem;
+
+    @include selectFont('Open Sans');
+
+    color: #60bae7;
+    @include titleSeparator(2rem, 4rem, #FFA500, 0.6rem);
+}
+
+
+
+.home-section {
+    .container {
+        margin-top: 6rem;
+    }
+}
+
+.section-one-text {
+    @include selectFont('Roboto');
+}
+
+
+.home-vision-title {
+    color: #60bae7;
+    @include titleSeparator(2rem, 4rem, #FFA500, 0.6rem);
+
+
+}
+
+.image-vision-container {
+    margin-top: 6rem;
+}
+
+.section-two-text {
+    @include selectFont('Roboto');
+}
+
+.fade-in {
+    opacity: 0;
+    animation: fadeIn 1s ease-in-out forwards;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
