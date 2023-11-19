@@ -1,0 +1,20 @@
+.listado-titulo {
+    margin-top: 1.5rem;
+    margin-bottom: 2rem;
+    
+    font-size: 1.3rem;
+    font-weight: bold;
+
+    color: #60bae7;
+
+    text-decoration: underline;
+}
+
+.table-container {
+    margin-left: 20vw !important;
+
+    .tabla-articulos {
+        height: auto;
+        width: 60vw;
+    }
+}

@@ -37,8 +37,7 @@ function Dashboard() {
     const card = {
         id: "card01",
         displayName: "Emanuel Caro",
-        photo: profileImg,
-        title: "Criador de Pastores Alemanes"
+        photo: profileImg
     };
 
     return (

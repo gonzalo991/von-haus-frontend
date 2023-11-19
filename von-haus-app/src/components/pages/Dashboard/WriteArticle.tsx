@@ -4,29 +4,13 @@ import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.snow.css';
+import { modules, formats } from '../../libs/quillformats';
 
 // Definición del componente funcional React llamado WriteArticle
 const WriteArticle: React.FC = () => {
     const [texto, setTexto] = useState<string>("");
     // Hook de enrutamiento de React Router
     const navigate = useNavigate();
-
-    // Configuración de los módulos y formatos para el editor React Quill
-    const modules = {
-        toolbar: [
-            [{ 'header': [1, 2, false] }],
-            ['bold', 'italic', 'underline', 'strike', 'blockquote'],
-            [{ 'list': 'ordered' }, { 'list': 'bullet' }, { 'indent': '-1' }, { 'indent': '+1' }],
-            ['link', 'image', 'video'],
-            ['clean'],
-        ],
-    };
-
-    const formats = [
-        'header', 'bold', 'italic', 'underline', 'strike', 'blockquote',
-        'list', 'bullet', 'indent',
-        'link', 'image', 'video',
-    ];
 
     const handleEditorChange = (content: string) => {
         setTexto(content);
@@ -118,7 +102,7 @@ const WriteArticle: React.FC = () => {
 
                     <div className='d-flex justify-content-center'>
                         {/* Botón para enviar el formulario */}
-                        <button className='btn btn-success mt-3' type="submit">Crear Artículo</button>
+                        <button className='btn btn-success mt-6' type="submit">Crear Artículo</button>
                     </div>
                 </form>
             </div>

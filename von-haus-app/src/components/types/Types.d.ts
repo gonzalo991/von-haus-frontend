@@ -18,8 +18,13 @@ export interface SideBarMenuItem {
 export interface SideBarMenuCard {
     id: string,
     displayName: string,
-    photo: string,
-    title: string
+    photo: string
+}
+
+export interface Article {
+    _id: number;
+    titulo: string;
+    subtitulo: string;
 }
 
 export interface EditArticleProps {
