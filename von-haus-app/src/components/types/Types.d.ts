@@ -21,3 +21,12 @@ export interface SideBarMenuCard {
     photo: string,
     title: string
 }
+
+export interface EditArticleProps {
+    _id: number;
+    data: FormData;
+}
+
+export interface DeleteArticlePops {
+    _id: number
+}

@@ -1,5 +1,5 @@
 // Importa las bibliotecas y componentes necesarios
-import React from 'react';
+import React, { useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import ReactQuill from 'react-quill';
@@ -7,6 +7,7 @@ import 'react-quill/dist/quill.snow.css';
 
 // Definición del componente funcional React llamado WriteArticle
 const WriteArticle: React.FC = () => {
+    const [texto, setTexto] = useState<string>("");
     // Hook de enrutamiento de React Router
     const navigate = useNavigate();
 
@@ -27,6 +28,10 @@ const WriteArticle: React.FC = () => {
         'link', 'image', 'video',
     ];
 
+    const handleEditorChange = (content: string) => {
+        setTexto(content);
+    };
+
     // Maneja la presentación del formulario y envía los datos al servidor
     const handleSubmit = async (ev: React.FormEvent<HTMLFormElement>) => {
         ev.preventDefault();
@@ -34,14 +39,12 @@ const WriteArticle: React.FC = () => {
         const target = ev.target as typeof ev.target & {
             titulo: { value: string };
             subtitulo: { value: string };
-            texto: { value: string };
             image: { files: FileList };
         };
 
         // Extrae los valores del formulario
         const titulo = target.titulo.value;
         const subtitulo = target.subtitulo.value;
-        const texto = target.texto.value; // Corregido: Debería ser `texto: target.texto.value`.
         const image = target.image.files && target.image.files[0];
 
         // Verifica si se seleccionó una imagen
@@ -59,7 +62,7 @@ const WriteArticle: React.FC = () => {
 
         try {
             // Envía la solicitud POST al servidor con los datos del formulario
-            const response = await axios.post('URL_DE_TU_API', formData, {
+            const response = await axios.post('https://von-haus-data-backend.onrender.com/articulos/addArticle', formData, {
                 headers: {
                     'Content-Type': 'multipart/form-data',
                 },
@@ -104,6 +107,8 @@ const WriteArticle: React.FC = () => {
                         {/* Editor de texto React Quill */}
                         <label className="form-label">Contenido:</label>
                         <ReactQuill
+                            onChange={handleEditorChange}
+                            value={texto}
                             className='mb-5' // Agregado un espacio inferior al editor
                             modules={modules}
                             formats={formats}

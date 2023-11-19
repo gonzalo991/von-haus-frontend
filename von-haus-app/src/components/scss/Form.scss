@@ -1,0 +1,63 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@1,500&display=swap');
+@import './commons.scss';
+
+body {
+    background-image: url('../img/foto-pastor-2.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center top;
+}
+
+.admin-title {
+    @include selectFont('PlayFair Display');
+    text-decoration: underline;
+    color: #60bae7;
+}
+
+.add-form {
+    margin: 0.5rem;
+    padding: 1rem;
+
+    border-radius: 10px;
+    border: solid 1px #60bae7;
+
+    label {
+        color: #60bae7;
+    }
+
+    input {
+        border: solid 0.2px #60bae7;
+        border-radius: 10px;
+    }
+
+    .ql-toolbar {
+        background-color: #60bae7;
+        color: white;
+    }
+
+    /* Opcionalmente, puedes ajustar los estilos de los botones individuales */
+    .ql-toolbar button {
+        color: white;
+    }
+
+    /* Cambia el color del texto en el área de formato del editor */
+    .ql-picker-label {
+        color: white;
+    }
+
+    /* Cambia el color del fondo de la lista desplegable del área de formato */
+    .ql-picker-options {
+        background-color: black;
+        color: white;
+    }
+
+    /* Cambia el color del texto en la lista desplegable del área de formato */
+    .ql-picker-options li {
+        color: white;
+    }
+
+    /* Cambia el color del fondo del área de texto del editor */
+    .ql-editor {
+        color: white;
+    }
+}

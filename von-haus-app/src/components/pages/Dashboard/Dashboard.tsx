@@ -12,19 +12,19 @@ function Dashboard() {
             id: "1",
             label: "Escribir Articulo",
             icon: FcUpload,
-            url: "/publicar"
+            url: "/admin/publicar"
         },
         {
             id: "2",
             label: "Lista de Articulo",
             icon: FcDatabase,
-            url: "/listado"
+            url: "/admin/listado"
         },
         {
             id: "3",
             label: "Subir una foto",
             icon: FcCameraAddon,
-            url: "/agregarImagen"
+            url: "/admin/agregarImagen"
         },
         {
             id: "4",
