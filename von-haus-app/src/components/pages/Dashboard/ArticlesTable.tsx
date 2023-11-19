@@ -40,7 +40,7 @@ const ArticlesTable: React.FC = () => {
 
     return (
         <>
-            <h2 className='text-center listado-titulo'>Listado de Artículos</h2>
+            <h2 className='text-center listado-titulo admin-title'>Listado de Artículos</h2>
             <div className='table-container m-auto ms-5 mt-5 mb-2'>
                 <table className='table is-hoverable is-bordered mt-5 mb-2 ms-3 tabla-articulos'>
                     <thead>

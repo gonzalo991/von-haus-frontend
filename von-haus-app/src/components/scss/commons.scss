@@ -1,3 +1,7 @@
 @mixin transition($property){
     transition: $property 0.2s ease-in-out;
 }
+
+@mixin selectFont($property) {
+    font-family: $property, serif;
+}

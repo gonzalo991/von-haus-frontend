@@ -5,6 +5,7 @@ import { useNavigate } from 'react-router-dom';
 import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.snow.css';
 import { modules, formats } from '../../libs/quillformats';
+import '../../scss/Form.scss';
 
 // Definición del componente funcional React llamado WriteArticle
 const WriteArticle: React.FC = () => {
@@ -67,10 +68,10 @@ const WriteArticle: React.FC = () => {
     // Renderiza el formulario para crear un artículo
     return (
         <div className="container mt-3">
-            <h1 className='mb-3 text-center'>Publicar un Artículo</h1>
+            <h1 className='mb-3 text-center admin-title'>Publicar un Artículo</h1>
 
             <div className='container ms-5'>
-                <form className='mt-5 m-auto w-75' onSubmit={handleSubmit}>
+                <form className='mt-5 m-auto w-75 add-form' onSubmit={handleSubmit}>
                     {/* Campos del formulario */}
                     <div className="mb-3">
                         <label className="form-label">Titulo</label>
