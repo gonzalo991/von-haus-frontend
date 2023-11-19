@@ -27,11 +27,6 @@ export interface Article {
     subtitulo: string;
 }
 
-export interface EditArticleProps {
-    _id: number;
-    data: FormData;
-}
-
-export interface DeleteArticleProps {
+export interface ArticleProps {
     _id: number
 }

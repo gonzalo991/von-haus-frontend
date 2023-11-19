@@ -100,7 +100,7 @@ const WriteArticle: React.FC = () => {
                         />
                     </div>
 
-                    <div className='d-flex justify-content-center'>
+                    <div className='d-flex justify-content-center mt-3'>
                         {/* Botón para enviar el formulario */}
                         <button className='btn btn-success mt-6' type="submit">Crear Artículo</button>
                     </div>

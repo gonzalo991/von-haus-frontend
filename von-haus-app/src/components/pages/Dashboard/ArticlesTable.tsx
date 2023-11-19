@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { MdDeleteForever } from 'react-icons/md';
-import { DeleteArticleProps } from '../../types/Types';
+import { ArticleProps } from '../../types/Types';
 import EditButton from '../../fragments/EditButton';
 import '../../scss/Table.scss';
 import { Article } from '../../types/Types';
@@ -27,7 +27,7 @@ const ArticlesTable: React.FC = () => {
     }, []);
 
 
-    const handleDeleteArticle = async ({ _id }: DeleteArticleProps) => {
+    const handleDeleteArticle = async ({ _id }: ArticleProps) => {
         try {
             const response = await axios.delete(`https://von-haus-data-backend.onrender.com/deleteArticle/${_id}`);
             console.info(`Se borró el artículo con el id: ${_id}. \nRespuesta del servidor: ${response.data}`);
@@ -59,7 +59,7 @@ const ArticlesTable: React.FC = () => {
                                 <td>{article.titulo}</td>
                                 <td>{article.subtitulo}</td>
                                 <td>
-                                    <EditButton />
+                                    <EditButton _id={article._id}/>
                                 </td>
                                 <td>
                                     <button
