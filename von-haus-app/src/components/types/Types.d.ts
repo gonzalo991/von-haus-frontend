@@ -30,3 +30,7 @@ export interface Article {
 export interface ArticleProps {
     _id: number
 }
+
+export interface LoginProviderProps {
+    children: ReactNode;
+}
