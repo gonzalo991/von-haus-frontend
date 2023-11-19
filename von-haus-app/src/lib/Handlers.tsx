@@ -1,6 +1,6 @@
 import React from "react";
 import axios from "axios";
-import { EditArticleProps, DeleteArticlePops } from "../components/types/Types";
+import { EditArticleProps, DeleteArticleProps } from "../components/types/Types";
 
 
 export const handleEditArticle =
@@ -11,12 +11,20 @@ export const handleEditArticle =
             // Puedes hacer algo con la respuesta si es necesario`
             console.info(`Se logró editar el archivo con exito.`);
             console.debug(response.data);
+            window.alert("Se editó el artículo correctamente");
         } catch (error) {
             console.error("Error al editar el artículo:", error);
-            // Puedes mostrar un mensaje al usuario aquí
+            window.alert("Error al editar el articulo");
         }
     };
 
-export const handleDeleteArticle = (ev: any, _id: number) => {
-    ev.preventDefault();
-}
+export const handleDeleteArticle = async ({ _id }: DeleteArticleProps) => {
+    try {
+        const response = await axios.delete(`https://von-haus-data-backend.onrender.com//deleteArticle/${_id}`);
+        console.info(`Se borro el artículo con el id: ${_id}. \nRespuesta del servidor: ${response.data}`);
+        window.alert("El artículo se borro");
+    } catch (error) {
+        console.error("Error al eliminar el artículo:", error);
+        window.alert("No se pudo borrar el artículo");
+    }
+};

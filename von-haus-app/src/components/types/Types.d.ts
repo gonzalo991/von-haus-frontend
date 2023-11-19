@@ -27,6 +27,6 @@ export interface EditArticleProps {
     data: FormData;
 }
 
-export interface DeleteArticlePops {
+export interface DeleteArticleProps {
     _id: number
 }
