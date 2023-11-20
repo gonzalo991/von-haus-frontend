@@ -5,7 +5,6 @@
     position: relative;
     overflow: hidden;
     background: hsl(171, 65%, 78%);
-    position: relative;
 
     svg {
         position: absolute;
@@ -43,35 +42,58 @@
 
 .section-one-text {
     @include selectFont('Roboto');
+
+    .parrafo {
+        &::first-letter {
+            margin-left: 1.5rem;
+        }
+    }
 }
 
+    .home-vision-title {
+        color: #60bae7;
+        @include titleSeparator(2rem, 4rem, #FFA500, 0.6rem);
 
-.home-vision-title {
-    color: #60bae7;
-    @include titleSeparator(2rem, 4rem, #FFA500, 0.6rem);
 
+    }
 
-}
+    .image-vision-container {
+        margin-top: 6rem;
+    }
 
-.image-vision-container {
-    margin-top: 6rem;
-}
+    .home-second-section {
+        background: #ADE1D9;
+        position: relative;
 
-.section-two-text {
-    @include selectFont('Roboto');
-}
+        svg {
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+    }
 
-.fade-in {
-    opacity: 0;
-    animation: fadeIn 1s ease-in-out forwards;
-}
+    .section-two-text {
+        @include selectFont('Roboto');
 
-@keyframes fadeIn {
-    from {
+        .parrafo {
+            &::first-letter {
+                margin-left: 1.5rem;
+            }
+        }
+    }
+
+    .fade-in {
         opacity: 0;
+        animation: fadeIn 1s ease-in-out forwards;
     }
 
-    to {
-        opacity: 1;
+
+    @keyframes fadeIn {
+        from {
+            opacity: 0;
+        }
+
+        to {
+            opacity: 1;
+        }
     }
-}
