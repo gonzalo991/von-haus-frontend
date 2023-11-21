@@ -1,5 +1,5 @@
 @import './commons.scss';
-@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@500&family=Playfair+Display:ital,wght@1,400;1,500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@500&family=Playfair+Display:ital,wght@1,400;1,500&display=swap'); 
 
 .home-section {
     position: relative;
@@ -133,5 +133,30 @@
 
         color: #60bae7;
         font-size: 1.8rem;
+    }
+}
+
+.sponsor-title {
+    margin: 1.7rem 0 1.7rem;
+    padding: 0.7rem;
+
+    font-size: 1.8rem;
+    @include selectFont('Playfair Display');
+
+    color: #f69f2d;
+    text-decoration: underline;
+
+    animation: sponsorFadeUp 3.5s ease-in-out infinite; 
+}
+
+@keyframes sponsorFadeUp {
+    0% {
+        opacity: 0;
+        transform: translateY(30px) scale(0.9);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
     }
 }

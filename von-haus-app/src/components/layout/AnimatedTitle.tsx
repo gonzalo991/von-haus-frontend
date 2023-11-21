@@ -15,7 +15,7 @@ const AnimatedTitle: React.FC<AnimatedTitleProps> = ({ title }) => {
                 letters.forEach((letter, index) => {
                     setTimeout(() => {
                         letter.classList.add('visible');
-                    }, index * 600);
+                    }, index * 400);
                 });
 
                 setTimeout(() => {
@@ -24,7 +24,7 @@ const AnimatedTitle: React.FC<AnimatedTitleProps> = ({ title }) => {
                     });
 
                     revealLetters();
-                }, letters.length * 600);
+                }, letters.length * 400);
             }
         };
 

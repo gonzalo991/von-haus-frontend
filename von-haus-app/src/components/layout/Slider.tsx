@@ -5,7 +5,7 @@ import sliderImage3 from '../img/exposiciones_7.jpeg';
 
 const Slider: React.FC = () => {
     return (
-        <div id="carouselExampleFade" className="carousel slide carousel-fade" data-bs-ride="carousel" data-bs-interval="3000">
+        <div id="carouselExampleFade" className="carousel slide" data-bs-ride="carousel" data-bs-interval="3000">
             <div className="carousel-inner">
                 <div className="carousel-item active">
                     <img src={SliderImage1} className="d-block w-100" style={{ height: "70vh" }} alt="pastor en exposicion" />

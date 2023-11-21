@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import logo from '../img/logovonhaus.png';
-import { Link } from 'react-router-dom';
+import { Link, ScrollRestoration } from 'react-router-dom';
 import '../scss/Header.scss';
 
 const Header: React.FC = () => {
@@ -28,15 +28,6 @@ const Header: React.FC = () => {
                                 onClick={() => handleLinkClick('Inicio')}
                             >
                                 Inicio
-                            </Link>
-                        </li>
-                        <li className={`nav-item ${activeLink === 'Servicios' ? 'active' : ''}`}>
-                            <Link
-                                className="nav-link"
-                                to="/servicios"
-                                onClick={() => handleLinkClick('Servicios')}
-                            >
-                                Servicios
                             </Link>
                         </li>
                         <li className={`nav-item ${activeLink === 'Ejemplares' ? 'active' : ''}`}>
