@@ -4,36 +4,13 @@ import imgCriador from '../img/criador.jpeg';
 import imgVision from '../img/criadero_von_haus_8.jpeg';
 import Servicios from './Servicios';
 import '../scss/Home.scss';
+import '../scss/Animations.scss';
 import VideoSponsor from '../fragments/VideoSponsor';
-import SecondSlider from '../layout/SecondSlider';
+import { ImageVisibility } from '../libs/ImageVisibility';
+// import SecondSlider from '../layout/SecondSlider';
 
 const Home: React.FC = () => {
-    const [isImageLoaded, setIsImageLoaded] = useState<boolean>(false);
-    const [isImageVisible, setIsImageVisible] = useState<boolean>(false);
-
-    useEffect(() => {
-        // Simula la carga de la imagen
-        const loadImage = new Image();
-        loadImage.src = imgCriador;
-        loadImage.onload = () => {
-            setIsImageLoaded(true);
-        };
-
-        // Manejar el evento de scroll
-        const handleScroll = () => {
-            const imageContainer = document.getElementById('image-container');
-            if (imageContainer) {
-                const rect = imageContainer.getBoundingClientRect();
-                const isVisible = rect.top <= window.innerHeight && rect.bottom >= 0;
-                setIsImageVisible(isVisible);
-            }
-        };
-
-        window.addEventListener('scroll', handleScroll);
-        return () => {
-            window.removeEventListener('scroll', handleScroll);
-        };
-    }, []);
+    const { isImageLoaded, isImageVisible } = ImageVisibility(imgCriador);
 
     return (
         <>
@@ -72,8 +49,13 @@ const Home: React.FC = () => {
                 <h2 className='mt-5 mb-3 text-center home-vision-title'>Vision</h2>
                 <div className="container image-vision-container">
                     <div className="row">
-                        <div className='d-flex align-items-center justify-content-center mt-5 mb-3 col-md-6 col-sm-12'>
-                            <img className='home-vision-img mx-auto' src={imgVision}
+                        <div
+                            id="image-container"
+                            className={`image-container d-flex align-items-center justify-content-center mt-5 mb-3 col-md-6 col-sm-12 ${isImageLoaded && isImageVisible ? 'fade-up' : ''}`}
+                        >
+                            <img
+                                className='home-vision-img mx-auto'
+                                src={imgVision}
                                 alt='pastores alemanes'
                                 style={{ borderRadius: "20px", height: "60vh", width: "45vw" }}
                             />
@@ -94,7 +76,6 @@ const Home: React.FC = () => {
             <div className="servicios container" id="servicios">
                 <Servicios />
             </div>
-
         </>
     );
 };

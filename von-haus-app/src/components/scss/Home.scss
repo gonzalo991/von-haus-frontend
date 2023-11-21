@@ -13,7 +13,6 @@
     }
 }
 
-
 .home-title {
     margin-top: 1rem;
     @include titleSeparator(2.2rem, 4rem, #FFA500, 0.6rem);
@@ -31,7 +30,6 @@
     color: #60bae7;
     @include titleSeparator(2rem, 4rem, #FFA500, 0.6rem);
 }
-
 
 
 .home-section {
@@ -53,8 +51,6 @@
 .home-vision-title {
     color: #60bae7;
     @include titleSeparator(2rem, 4rem, #FFA500, 0.6rem);
-
-
 }
 
 .image-vision-container {
@@ -82,17 +78,12 @@
     }
 }
 
-.fade-in {
-    opacity: 0;
-    animation: fadeIn 1s ease-in-out forwards;
-}
-
 .img-carousel {
     height: 40rem;
 }
 
 .servicios-title {
-    margin: 2rem 0 1rem;
+    margin: 1rem 0 1rem;
     padding: 0.5rem 0 0.5rem;
 
     font-size: 1.7rem;
@@ -104,13 +95,14 @@
     @include titleSeparator(2rem, 4rem, #FFA500, 0.6rem);
 }
 
+
 #servicio1 {
-    padding-top: 6rem;
+    padding-top: 7rem;
 
     .adiestramiento-title {
         padding-top: 3rem;
         padding-bottom: 1.5rem;
-        
+
         color: #60bae7;
         font-size: 1.8rem;
     }
@@ -120,25 +112,26 @@
     }
 }
 
-.animated-title span {
-    display: inline-block;
-    opacity: 0;
-    transform: translateY(1em);
-    transition: opacity 0.5s ease-out, transform 0.5s ease-out;
-}
+#servicio2 {
+    padding-top: 1rem;
 
-.animated-title span.visible {
-    opacity: 1;
-    transform: translateY(0);
-}
+    .escuela-title {
+        padding-top: 3rem;
+        padding-bottom: 1.5rem;
 
-
-@keyframes fadeIn {
-    from {
-        opacity: 0;
+        color: #60bae7;
+        font-size: 1.8rem;
     }
+}
 
-    to {
-        opacity: 1;
+#servicio3 {
+    padding-top: 1rem;
+
+    .ventas-title {
+        padding-top: 3rem;
+        padding-bottom: 1.5rem;
+
+        color: #60bae7;
+        font-size: 1.8rem;
     }
 }
