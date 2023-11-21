@@ -4,6 +4,8 @@ import imgCriador from '../img/criador.jpeg';
 import imgVision from '../img/criadero_von_haus_8.jpeg';
 import Servicios from './Servicios';
 import '../scss/Home.scss';
+import VideoSponsor from '../fragments/VideoSponsor';
+import SecondSlider from '../layout/SecondSlider';
 
 const Home: React.FC = () => {
     const [isImageLoaded, setIsImageLoaded] = useState<boolean>(false);
@@ -67,7 +69,7 @@ const Home: React.FC = () => {
 
             <div id='section2' className='home-second-section mt-5 mb-4'>
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="#ffffff" fill-opacity="1" d="M0,192L60,176C120,160,240,128,360,106.7C480,85,600,75,720,112C840,149,960,235,1080,245.3C1200,256,1320,192,1380,160L1440,128L1440,0L1380,0C1320,0,1200,0,1080,0C960,0,840,0,720,0C600,0,480,0,360,0C240,0,120,0,60,0L0,0Z"></path></svg>
-                <h1 className='mt-5 mb-3 text-center home-vision-title'>Vision</h1>
+                <h2 className='mt-5 mb-3 text-center home-vision-title'>Vision</h2>
                 <div className="container image-vision-container">
                     <div className="row">
                         <div className='d-flex align-items-center justify-content-center mt-5 mb-3 col-md-6 col-sm-12'>
@@ -87,9 +89,12 @@ const Home: React.FC = () => {
                 </div>
             </div>
 
+            <VideoSponsor />
+
             <div className="servicios container" id="servicios">
                 <Servicios />
             </div>
+
         </>
     );
 };

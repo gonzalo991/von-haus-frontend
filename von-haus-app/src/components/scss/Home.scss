@@ -50,50 +50,95 @@
     }
 }
 
-    .home-vision-title {
+.home-vision-title {
+    color: #60bae7;
+    @include titleSeparator(2rem, 4rem, #FFA500, 0.6rem);
+
+
+}
+
+.image-vision-container {
+    margin-top: 6rem;
+}
+
+.home-second-section {
+    background: #ADE1D9;
+    position: relative;
+
+    svg {
+        position: absolute;
+        top: 0;
+        left: 0;
+    }
+}
+
+.section-two-text {
+    @include selectFont('Roboto');
+
+    .parrafo {
+        &::first-letter {
+            margin-left: 1.5rem;
+        }
+    }
+}
+
+.fade-in {
+    opacity: 0;
+    animation: fadeIn 1s ease-in-out forwards;
+}
+
+.img-carousel {
+    height: 40rem;
+}
+
+.servicios-title {
+    margin: 2rem 0 1rem;
+    padding: 0.5rem 0 0.5rem;
+
+    font-size: 1.7rem;
+    @include selectFont('Raleway');
+
+    text-decoration: underline;
+
+    color: #f69f2d;
+    @include titleSeparator(2rem, 4rem, #FFA500, 0.6rem);
+}
+
+#servicio1 {
+    padding-top: 6rem;
+
+    .adiestramiento-title {
+        padding-top: 3rem;
+        padding-bottom: 1.5rem;
+        
         color: #60bae7;
-        @include titleSeparator(2rem, 4rem, #FFA500, 0.6rem);
-
-
+        font-size: 1.8rem;
     }
 
-    .image-vision-container {
-        margin-top: 6rem;
+    img {
+        padding-top: 1rem;
     }
+}
 
-    .home-second-section {
-        background: #ADE1D9;
-        position: relative;
+.animated-title span {
+    display: inline-block;
+    opacity: 0;
+    transform: translateY(1em);
+    transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+}
 
-        svg {
-            position: absolute;
-            top: 0;
-            left: 0;
-        }
-    }
+.animated-title span.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
 
-    .section-two-text {
-        @include selectFont('Roboto');
 
-        .parrafo {
-            &::first-letter {
-                margin-left: 1.5rem;
-            }
-        }
-    }
-
-    .fade-in {
+@keyframes fadeIn {
+    from {
         opacity: 0;
-        animation: fadeIn 1s ease-in-out forwards;
     }
 
-
-    @keyframes fadeIn {
-        from {
-            opacity: 0;
-        }
-
-        to {
-            opacity: 1;
-        }
+    to {
+        opacity: 1;
     }
+}
