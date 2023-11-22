@@ -149,6 +149,10 @@
     animation: sponsorFadeUp 3.5s ease-in-out infinite; 
 }
 
+footer {
+    background: hsl(171, 65%, 78%);
+}
+
 @keyframes sponsorFadeUp {
     0% {
         opacity: 0;
