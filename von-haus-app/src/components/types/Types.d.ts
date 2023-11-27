@@ -25,6 +25,9 @@ export interface Article {
     _id: number;
     titulo: string;
     subtitulo: string;
+    image: string,
+    texto: string,
+    createdAt: string
 }
 
 export interface ArticleProps {

@@ -22,12 +22,12 @@ const Home: React.FC = () => {
                 <div className="container">
                     <div className="row">
                         <div className='col-md-6 col-sm-12'>
-                            <p className='mt-4 section-one-text'>
+                            <div className='mt-4 section-one-text'>
                                 <p className="parrafo">En el pintoresco paisaje de la ciudad de El Tala, ubicada en la provincia de Salta, Argentina, emerge con dedicación y pasión el criadero de perros Pastores Alemanes "Von Haus Lola Mora". Fundado en el año 2017 por Emanuel Caro, este criadero se ha consolidado como un referente en la crianza responsable de una de las razas más nobles y versátiles, los Pastores Alemanes.</p>
                                 <p className="parrafo">Desde sus inicios, "Von Haus Lola Mora" ha mantenido un compromiso inquebrantable con la crianza ética y responsable. Su misión fundamental es criar perros sanos, equilibrados y libres de problemas genéticos, destacándose por su dedicación al bienestar de cada ejemplar que forma parte de su linaje.</p>
                                 <p className="parrafo">El equipo detrás de este criadero no solo posee un profundo amor por la raza, sino también un conocimiento especializado en la genética y cuidados específicos de esta raza. Cada etapa del proceso de crianza se lleva a cabo con atención meticulosa, desde la elección de los padres hasta la socialización temprana de los cachorros.</p>
                                 <p className="parrafo">La salud y el bienestar de los perros son prioridades fundamentales en "Von Haus Lola Mora". Se realizan exhaustivos controles veterinarios, se aplican vacunas de manera oportuna y se proporciona una dieta equilibrada y nutritiva. Además, se brinda especial atención a la socialización de los cachorros, asegurando que crezcan en un ambiente estimulante y amoroso.</p>
-                            </p>
+                            </div>
                         </div>
 
                         <div
@@ -61,11 +61,11 @@ const Home: React.FC = () => {
                             />
                         </div>
                         <div className="col-md-6 col-sm12">
-                            <p className='mt-4 section-two-text'>
+                            <div className='mt-4 section-two-text'>
                                 <p className='parrafo'>La esencia de "Von Haus Lola Mora" reside en la convicción de que cada familia que elige uno de sus cachorros merece la certeza de llevar consigo un compañero de vida saludable. La misión fundamental se eleva más allá de la mera crianza de perros; se traduce en el compromiso de ofrecer a cada ejemplar un inicio de vida caracterizado por la salud, el equilibrio y la calidad genética.</p>
                                 <p className='parrafo'>La genética responsable se erige como un pilar esencial en este criadero. Mediante pruebas exhaustivas, se busca identificar y prevenir posibles problemas hereditarios, garantizando que cada cachorro tenga las mejores condiciones para una vida plena y activa. "Von Haus Lola Mora" se enorgullece de criar Pastores Alemanes que superan no solo los estándares de la raza, sino que también encarnan la fidelidad y el equilibrio que caracterizan a un compañero canino excepcional.</p>
                                 <p className='parrafo'>Extendiendo su compromiso más allá de las fronteras, el criadero realiza ventas al exterior, compartiendo la calidad y dedicación que define su labor con familias alrededor del mundo. Además, cuenta con el respaldo de un apreciado sponsor, "Jaspe", cuya dedicación a ofrecer alimentos para perros elaborados con ingredientes naturales sin químicos se alinea con la búsqueda del criadero por la sana y natural nutrición de sus animales.</p>
-                            </p>
+                            </div>
                         </div>
                     </div>
                 </div>
