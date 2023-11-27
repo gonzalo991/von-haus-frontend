@@ -1,12 +1,43 @@
 import React, { useEffect, useState } from 'react';
 import '../scss/Blog.scss';
 import { Link } from 'react-router-dom';
-import { Pagination } from '@mui/material';
 import axios from 'axios';
 import { Article } from '../types/Types';
+import Pagination from '../utilities/Paginacion';
 
 const Blog: React.FC = () => {
     const [article, setArticle] = useState<Article[]>([]);
+    const [currentPage, setCurrentPage] = useState<number>(1);
+
+    //Datos de la páginación
+    const articulosPorPagina: number = 8;
+    const totalDePaginas: number = Math.ceil(article.length / articulosPorPagina);
+
+    // Calcula el índice inicial y final de las noticias a mostrar en la página actual
+    const startIndex: number = (currentPage - 1) * articulosPorPagina;
+    const endIndex: number = (startIndex + articulosPorPagina) - 1;
+
+    const articulosActuales = article.slice(startIndex, endIndex + 1);
+
+    //Función para cambiar de página
+    const handleGoToPage = (pageNumber: number) => {
+        setCurrentPage(pageNumber);
+    };
+
+    // Función para manejar el evento del botón "Anterior"
+    const handlePreviousPage = () => {
+        if (currentPage > 1) {
+            setCurrentPage(currentPage - 1);
+        }
+    };
+
+    // Función para manejar el evento del botón "Siguiente"
+    const handleNextPage = () => {
+        if (currentPage < totalDePaginas) {
+            setCurrentPage(currentPage + 1);
+        }
+    };
+
 
     useEffect(() => {
         (async () => {
@@ -68,7 +99,9 @@ const Blog: React.FC = () => {
 
             </main>
 
-            <Pagination />
+            <Pagination totalDePaginas={totalDePaginas}
+                currentPage={currentPage} handleGoToPage={handleGoToPage}
+                handlePreviousPage={handlePreviousPage} handleNextPage={handleNextPage} />
         </>
     )
 }
