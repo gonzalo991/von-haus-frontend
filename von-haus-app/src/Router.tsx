@@ -5,6 +5,7 @@ import Home from "./components/pages/Home";
 import Ejemplares from "./components/pages/Ejemplares";
 import Blog from "./components/pages/Blog";
 import Galeria from "./components/pages/Galeria";
+import Detalle from "./components/pages/Detalle";
 
 const Router: React.FC = () => {
     return (
@@ -14,7 +15,8 @@ const Router: React.FC = () => {
             <Route path="/blog" element={<Blog />} />
             <Route path="/galeria" element={<Galeria />} />
             <Route path="/login" element={<Login />} />
-            <Route path="/admin/publicar" element={<Dashboard />} />
+            <Route path="/admin" element={<Dashboard />} />
+            <Route path="/detalle" element={<Detalle />} />
         </Routes>
     )
 }

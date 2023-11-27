@@ -51,7 +51,7 @@ const Blog: React.FC = () => {
                                             <h3 className="mb-0">{subtitulo}</h3>
                                             <div className="mb-1 mt-1 text-muted">Fecha: {dateString}</div>
                                             <p className="card-text mb-auto">{texto.substring(0, 150) + "..."}</p>
-                                            <Link className='button is-link' to={`/detalle?id_articulo=${articlePops._id}`}>Leer +</Link>
+                                            <Link className='button is-link' to={`/detalle?id_articulo=${_id}`}>Leer +</Link>
                                         </div>
 
                                         <div className="col-auto d-none d-lg-block">
