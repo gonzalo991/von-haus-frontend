@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import axios from 'axios';
 import { Article } from '../types/Types';
 import Pagination from '../utilities/Paginacion';
+import bannerImg from '../img/logovonhaus.png';
 
 const Blog: React.FC = () => {
     const [article, setArticle] = useState<Article[]>([]);
@@ -38,7 +39,6 @@ const Blog: React.FC = () => {
         }
     };
 
-
     useEffect(() => {
         (async () => {
             const endpoint = 'https://von-haus-data-backend.onrender.com/articulos/getArticles';
@@ -58,11 +58,10 @@ const Blog: React.FC = () => {
     return (
         <>
             <main className="container">
-                <div className="p-4 p-md-5 mb-4 text-white rounded bg-dark">
+                <div className="p-4 p-md-5 mb-4 text-white rounded bg-dark blog-img">
                     <div className="col-md-6 px-0">
-                        <h1 className="display-4 fst-italic">Title of a longer featured blog post</h1>
-                        <p className="lead my-3">Multiple lines of text that form the lede, informing new readers quickly and efficiently about what’s most interesting in this post’s contents.</p>
-                        <p className="lead mb-0"><a href="#" className="text-white fw-bold">Continue reading...</a></p>
+                        <h1 className="display-4 fst-italic">Aquí encontrarás articulos y consejos sobre Pastores Alemanes</h1>
+                        <p className="lead my-3">Hemos creado este blog para ayudar a nuestros clientes y amigos a recordar las consideraciones y cuidados básicos a tener en cuenta con su Pastor Aleman.</p>
                     </div>
                 </div>
 

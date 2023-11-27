@@ -6,6 +6,13 @@
     user-select: none;
 }
 
+.blog-img {
+    background-image: url('../img/pastor_pelo_corto.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: top 20%;
+}
+
 @media (min-width: 768px) {
     .bd-placeholder-img-lg {
         font-size: 3.5rem;
