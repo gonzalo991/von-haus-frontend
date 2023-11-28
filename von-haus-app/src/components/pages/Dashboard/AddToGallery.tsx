@@ -65,6 +65,11 @@ const AddToGallery: React.FC = () => {
                         <input className="form-control" type="file" id="formFile" name='image' />
                     </div>
 
+                    <div className="mb-3">
+                        <label className="form-label">Descipcion</label>
+                        <input type="text" className="form-control" placeholder="Título de la imagen" name='titulo' />
+                    </div>
+
                     <div className='d-flex justify-content-center mt-3'>
                         {/* Botón para enviar el formulario */}
                         <button className='btn btn-success mt-6' type="submit">Publicar Imagen</button>

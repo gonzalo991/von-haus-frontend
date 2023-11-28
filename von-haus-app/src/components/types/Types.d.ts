@@ -37,3 +37,11 @@ export interface ArticleProps {
 export interface LoginProviderProps {
     children: ReactNode;
 }
+
+export interface Gallery {
+    _id: number,
+    titulo: string,
+    image: string,
+    descripcion: string,
+    createdAt: string
+}

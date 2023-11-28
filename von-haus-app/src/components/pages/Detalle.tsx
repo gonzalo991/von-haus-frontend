@@ -11,7 +11,7 @@ const Detalle: React.FC = () => {
     useEffect(() => {
         const endpoint = `https://von-haus-data-backend.onrender.com/articulos/${id_articulo}`;
         const fetchData = async () => {
-            axios.get(endpoint).then((response) => {
+            await axios.get(endpoint).then((response) => {
                 const data = response.data;
                 setArticulo(data);
                 console.info(`Articulo con el id: ${data._id} cargado!`);

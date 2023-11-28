@@ -30,15 +30,6 @@ const Header: React.FC = () => {
                                 Inicio
                             </Link>
                         </li>
-                        <li className={`nav-item ${activeLink === 'Ejemplares' ? 'active' : ''}`}>
-                            <Link
-                                className="nav-link"
-                                to="/ejemplares"
-                                onClick={() => handleLinkClick('Ejemplares')}
-                            >
-                                Ejemplares
-                            </Link>
-                        </li>
                         <li className={`nav-item ${activeLink === 'Galeria' ? 'active' : ''}`}>
                             <Link
                                 className="nav-link"

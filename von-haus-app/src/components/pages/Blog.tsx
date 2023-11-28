@@ -57,7 +57,7 @@ const Blog: React.FC = () => {
 
     return (
         <>
-            <main className="container">
+            <main className="container mt-5">
                 <div className="p-4 p-md-5 mb-4 text-white rounded bg-dark blog-img">
                     <div className="col-md-6 px-0">
                         <h1 className="display-4 fst-italic">Aquí encontrarás articulos y consejos sobre Pastores Alemanes</h1>
