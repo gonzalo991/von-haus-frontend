@@ -4,7 +4,6 @@ import { Link } from 'react-router-dom';
 import axios from 'axios';
 import { Article } from '../types/Types';
 import Pagination from '../utilities/Paginacion';
-import bannerImg from '../img/logovonhaus.png';
 
 const Blog: React.FC = () => {
     const [article, setArticle] = useState<Article[]>([]);

@@ -6,6 +6,16 @@ import { Gallery } from '../types/Types';
 import axios from 'axios';
 
 const Galeria: React.FC = () => {
+
+    function arrayBufferToBase64(buffer: ArrayBuffer): string {
+        const binary = new Uint8Array(buffer);
+        const bytes: any = [];
+        binary.forEach((byte) => {
+            bytes.push(String.fromCharCode(byte));
+        });
+        return btoa(bytes.join(''));
+    }
+
     const [galeria, setGaleria] = useState<Gallery[]>([]);
     const [currentPage, setCurrentPage] = useState<number>(1);
 
@@ -73,13 +83,16 @@ const Galeria: React.FC = () => {
                     {
                         galeria.map((gallery) => {
                             const { _id, titulo, image, descripcion, createdAt } = gallery;
-                            const imgUrl = `https://von-haus-data-backend.onrender.com/uploads/${image}`;
 
                             return (
                                 <div key={_id} className="card mt-5 mb-5 ms-4 col-4" style={{ width: 400, height: 550 }}>
                                     <div className="card-image">
                                         <figure className="image is-4by3">
-                                            <img className='mt-2' src={imgUrl} alt="Placeholder image" />
+                                            <img
+                                                className='mt-2'
+                                                src={`data:image/jpeg;base64,${image}`}
+                                                alt="Placeholder image"
+                                            />
                                         </figure>
                                     </div>
                                     <div className="card-content">
