@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import logo from '../img/logovonhaus.png';
-import { Link, ScrollRestoration } from 'react-router-dom';
+import { Link } from 'react-router-dom';
+import Login from '../fragments/Login';
 import '../scss/Header.scss';
 
 const Header: React.FC = () => {
@@ -49,7 +50,7 @@ const Header: React.FC = () => {
                             </Link>
                         </li>
                     </ul>
-                    <button className="btn btn-outline-success me-3" type="button">Admin</button>
+                    <Login />
                 </div>
             </div>
         </nav>

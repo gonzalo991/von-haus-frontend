@@ -45,3 +45,13 @@ export interface Gallery {
     descripcion: string,
     createdAt: string
 }
+
+interface User {
+    username: string;
+    password: string;
+}
+
+interface AuthValidationResult {
+    isValid: boolean;
+    message?: string;
+}

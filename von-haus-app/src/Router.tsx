@@ -12,7 +12,6 @@ const Router: React.FC = () => {
             <Route path="/" element={<Home />} />
             <Route path="/blog" element={<Blog />} />
             <Route path="/galeria" element={<Galeria />} />
-            <Route path="/login" element={<Login />} />
             <Route path="/admin" element={<Dashboard />} />
             <Route path="/detalle" element={<Detalle />} />
         </Routes>
