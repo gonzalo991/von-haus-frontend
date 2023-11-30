@@ -1,11 +1,6 @@
-import React, { useState, createContext, ReactNode, Dispatch, SetStateAction } from "react";
+import React, { useState, createContext, ReactNode } from "react";
 
-type LoginContextType = {
-    username: string;
-    token: string;
-    setLogin: Dispatch<SetStateAction<{ username: string; token: string }>>;
-    logout: () => void;
-};
+type LoginContextType = [boolean, React.Dispatch<React.SetStateAction<boolean>>];
 
 export const LoginContext = createContext<LoginContextType | null>(null);
 
@@ -14,14 +9,10 @@ interface LoginProviderProps {
 }
 
 export const LoginProvider: React.FC<LoginProviderProps> = ({ children }) => {
-    const [login, setLogin] = useState<{ username: string; token: string }>({ username: '', token: '' });
-
-    const logout = () => {
-        setLogin({ username: '', token: '' });
-    };
+    const [login, setLogin] = useState<boolean>(false);
 
     return (
-        <LoginContext.Provider value={{ ...login, setLogin, logout }}>
+        <LoginContext.Provider value={[login, setLogin]}>
             {children}
         </LoginContext.Provider>
     );

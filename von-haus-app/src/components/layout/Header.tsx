@@ -1,11 +1,13 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import logo from '../img/logovonhaus.png';
 import { Link } from 'react-router-dom';
-import Login from '../fragments/Login';
+import LoggedIn from '../fragments/LoggedIn';
 import '../scss/Header.scss';
+import { LoginContext } from '../contexts/LoginContext';
 
 const Header: React.FC = () => {
     const [activeLink, setActiveLink] = useState('Inicio'); // Inicialmente establece "Inicio" como activo
+    const [login, setLogin] = useContext(LoginContext)!;
 
     const handleLinkClick = (linkName: any) => {
         setActiveLink(linkName);
@@ -50,7 +52,7 @@ const Header: React.FC = () => {
                             </Link>
                         </li>
                     </ul>
-                    <Login />
+                    <LoggedIn />
                 </div>
             </div>
         </nav>

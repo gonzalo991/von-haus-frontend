@@ -1,12 +1,12 @@
-import React, { ContextType, useContext, useState } from 'react';
-import { LoginContext } from '../contexts/LoginContext';
+import React, { useContext, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
+import { LoginContext } from '../contexts/LoginContext';
 
 const Login: React.FC = () => {
     const navigate = useNavigate();
     const [isOpen, setIsOpen] = useState<boolean>(false);
-    const { setLogin } = useContext(LoginContext)!;
+    const [login, setLogin] = useContext(LoginContext)!;
     const [username, setUsername] = useState<string>('');
     const [password, setPassword] = useState<string>('');
     const [isValidPassword, setIsValidPassword] = useState<boolean>(true);
@@ -47,9 +47,14 @@ const Login: React.FC = () => {
 
                 if (data && data.token && data.username) {
                     const { token, username } = data;
-                    setLogin({ token, username });
-                    navigate('/admin');
-                    setIsOpen(false);
+
+                    // Guardar los datos en localStorage
+                    localStorage.setItem('token', token);
+                    localStorage.setItem('username', username);
+
+                    setLogin(true);
+                    navigate('/admin');  // Navegamos al panel de administrador
+                    setIsOpen(false); // Cerramos el modal
                 } else {
                     console.error('No se encontró el token o el nombre de usuario en la respuesta.');
                 }
