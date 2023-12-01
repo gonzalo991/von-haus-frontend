@@ -7,15 +7,6 @@ import axios from 'axios';
 
 const Galeria: React.FC = () => {
 
-    function arrayBufferToBase64(buffer: ArrayBuffer): string {
-        const binary = new Uint8Array(buffer);
-        const bytes: any = [];
-        binary.forEach((byte) => {
-            bytes.push(String.fromCharCode(byte));
-        });
-        return btoa(bytes.join(''));
-    }
-
     const [galeria, setGaleria] = useState<Gallery[]>([]);
     const [currentPage, setCurrentPage] = useState<number>(1);
 
@@ -65,7 +56,6 @@ const Galeria: React.FC = () => {
     }, []);
 
     console.log(galeria)
-    // titulo Imagen y Descripcion
     return (
         <>
             <Slider />
@@ -81,7 +71,7 @@ const Galeria: React.FC = () => {
 
                 <div className="row mx-auto">
                     {
-                        galeria.map((gallery) => {
+                        articulosActuales.map((gallery) => {
                             const { _id, titulo, image, descripcion, createdAt } = gallery;
 
                             return (

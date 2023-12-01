@@ -66,9 +66,8 @@ const Blog: React.FC = () => {
 
                 <div className="row mb-2">
                     {
-                        article.map(articlePops => {
+                        articulosActuales.map(articlePops => {
                             const { _id, titulo, subtitulo, texto, image, createdAt } = articlePops;
-                            const imgUrl = `https://von-haus-data-backend.onrender.com/uploads/${image}`;
                             const dateString = new Date(createdAt).toLocaleDateString();
 
                             return (
@@ -79,12 +78,14 @@ const Blog: React.FC = () => {
                                             <strong className="d-inline-block mb-2 text-primary">{titulo}</strong>
                                             <h3 className="mb-0">{subtitulo}</h3>
                                             <div className="mb-1 mt-1 text-muted">Fecha: {dateString}</div>
-                                            <p className="card-text mb-auto">{texto.substring(0, 150) + "..."}</p>
+                                            <div className='card-text' dangerouslySetInnerHTML={{ __html: texto.substring(0, 150)+"..." }} />
                                             <Link className='button is-link' to={`/detalle?id_articulo=${_id}`}>Leer +</Link>
                                         </div>
 
                                         <div className="col-auto d-none d-lg-block">
-                                            <img className='bd-placeholder-img' style={{ width: 200, height: 250 }} src={imgUrl} />
+                                            <img className='bd-placeholder-img' style={{ width: 200, height: 250 }}
+                                                src={`data:image/jpeg;base64,${image}`}
+                                            />
                                         </div>
 
                                     </div>

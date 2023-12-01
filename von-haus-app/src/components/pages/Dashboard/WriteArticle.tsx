@@ -12,6 +12,7 @@ const WriteArticle: React.FC = () => {
     const [texto, setTexto] = useState<string>("");
     // Hook de enrutamiento de React Router
     const navigate = useNavigate();
+    const token = localStorage.getItem('token');
 
     const handleEditorChange = (content: string) => {
         setTexto(content);
@@ -46,25 +47,29 @@ const WriteArticle: React.FC = () => {
         formData.append('texto', texto);
         formData.append('image', image);
 
-        try {
-            // Envía la solicitud POST al servidor con los datos del formulario
-            const response = await axios.post('https://von-haus-data-backend.onrender.com/articulos/addArticle', formData, {
-                headers: {
-                    'Content-Type': 'multipart/form-data',
-                },
-            });
-
-            // Registra en la consola la respuesta del servidor
-            console.log(`Se enviaron los datos para crear un artículo: \n${response.data}`);
-        } catch (error) {
-            // Captura y registra cualquier error que ocurra durante la solicitud
-            console.error(`Ocurrió un error al cargar el artículo: ${error}`);
-            alert("Ocurrió un error al cargar el articulo");
-        } finally {
-            // Registra en la consola y redirige a la página principal
-            console.log(`Se envió la noticia para cargar`);
-            alert("Se envió la noticia correctamente");
-            navigate('/'); // Redirigir a la página principal o a donde sea necesario
+        if (token) {
+            try {
+                // Envía la solicitud POST al servidor con los datos del formulario
+                const response = await axios.post('https://von-haus-data-backend.onrender.com/articulos/addArticle', formData, {
+                    headers: {
+                        'Content-Type': 'multipart/form-data',
+                        'Authorization': `Bearer ${token}`
+                    },
+                });
+                // Registra en la consola la respuesta del servidor
+                console.log(`Se enviaron los datos para crear un artículo: \n${response.data}`);
+            } catch (error) {
+                // Captura y registra cualquier error que ocurra durante la solicitud
+                console.error(`Ocurrió un error al cargar el artículo: ${error}`);
+                alert("Ocurrió un error al cargar el articulo");
+            } finally {
+                // Registra en la consola y redirige a la página principal
+                console.log(`Se envió la noticia para cargar`);
+                alert("Se publicó el articulo correctamente");
+                setTimeout(() => {
+                    navigate('/blog'); // Redirigir a la página principal o a donde sea necesario
+                }, 1000)
+            }
         }
     };
 
@@ -106,7 +111,7 @@ const WriteArticle: React.FC = () => {
 
                     <div className='d-flex justify-content-center mt-3'>
                         {/* Botón para enviar el formulario */}
-                        <button className='btn btn-success mt-6' type="submit">Crear Artículo</button>
+                        <button className='btn btn-success mt-6' type="submit">Publicar Artículo</button>
                     </div>
                 </form>
             </div>
