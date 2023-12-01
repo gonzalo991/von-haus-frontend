@@ -1,6 +1,9 @@
 import React, { useContext, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import imgAdd from '../../img/agregararticulo.jfif';
+import imgAdd from '../../img/escribir.jpg';
+import imgListas from '../../img/listas.jpg';
+import imgGaleria from '../../img/galeria.jpg';
+import imgBorrado from '../../img/borrado.png';
 import '../../scss/Home.scss';
 
 const Dashboard: React.FC = () => {
@@ -20,28 +23,28 @@ const Dashboard: React.FC = () => {
             <div className="container contenedor mt-5 mb-5">
                 <div className="row d-flex justify-content-center">
                     <div className="card col-md-6 col-12 tarjetas mb-3" style={{ border: "none" }}>
-                        <img src={imgAdd} className="card-img-top" alt="agregar imagen" />
+                        <img src={imgAdd} className="card-img-top" alt="agregar imagen"  style={{height:"23rem"}} />
                         <div className="card-body text-center">
                             <Link to="/admin/publicar" className="button is-primary">Publicar un Artículo</Link>
                         </div>
                     </div>
 
-                    <div className="card col-md-6 col-12 tarjetas mb-3" style={{ border: "none" }}>
-                        <img src={imgAdd} className="card-img-top" alt="agregar imagen" />
+                    <div className="card col-md-6 col-12 tarjetas mb-3" style={{ border: "none;"}}>
+                        <img src={imgListas} className="card-img-top" alt="agregar imagen" style={{height:"23rem"}} />
                         <div className="card-body text-center">
                             <Link to="/admin/listar" className="button is-warning">Listado de Artículos</Link>
                         </div>
                     </div>
 
                     <div className="card col-md-6 col-12 tarjetas mb-3" style={{ border: "none" }}>
-                        <img src={imgAdd} className="card-img-top" alt="agregar imagen" />
+                        <img src={imgGaleria} className="card-img-top" alt="agregar imagen"  style={{height:"23rem"}} />
                         <div className="card-body text-center">
                             <Link to="/admin/galeria" className="button is-success">Agregar en Galeria</Link>
                         </div>
                     </div>
 
                     <div className="card col-md-6 col-12 tarjetas mb-3" style={{ border: "none" }}>
-                        <img src={imgAdd} className="card-img-top" alt="agregar imagen" />
+                        <img src={imgBorrado} className="card-img-top" alt="agregar imagen"  style={{height:"23rem"}} />
                         <div className="card-body text-center">
                             <Link to="/admin/eliminar" className="button is-danger">Eliminar Contenido</Link>
                         </div>
