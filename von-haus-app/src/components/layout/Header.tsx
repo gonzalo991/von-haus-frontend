@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import logo from '../img/logovonhaus.png';
 import { Link } from 'react-router-dom';
 import LoggedIn from '../fragments/LoggedIn';
@@ -7,7 +7,13 @@ import { LoginContext } from '../contexts/LoginContext';
 
 const Header: React.FC = () => {
     const [activeLink, setActiveLink] = useState('Inicio'); // Inicialmente establece "Inicio" como activo
-    const [login, setLogin] = useContext(LoginContext)!;
+    const [isLogin, setIsLogin] = useState<boolean>(false);
+
+    useEffect(() => {
+        const token = localStorage.getItem('token');
+        if (token)
+            setIsLogin(true);
+    }, [])
 
     const handleLinkClick = (linkName: any) => {
         setActiveLink(linkName);
@@ -51,6 +57,20 @@ const Header: React.FC = () => {
                                 Blog
                             </Link>
                         </li>
+                        {
+                            isLogin ?
+                                <li className={`nav-item ${activeLink === 'Panel' ? 'active' : ''}`}>
+                                    <Link
+                                        className="nav-link button is-active is-hoverable is-primary"
+                                        to="/admin"
+                                        onClick={() => handleLinkClick('Blog')}
+                                    >
+                                        Panel
+                                    </Link>
+                                </li>
+                                :
+                                <p></p>
+                        }
                     </ul>
                     <LoggedIn />
                 </div>

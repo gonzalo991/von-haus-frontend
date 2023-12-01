@@ -39,6 +39,9 @@ const LoggedIn: React.FC = () => {
         localStorage.clear();
         navigate("/");
         alert("¡Cerraste Sesión!");
+        setTimeout(() => {
+            window.location.reload();
+        }, 2000);
     }
 
     return (
