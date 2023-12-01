@@ -3,7 +3,6 @@ import logo from '../img/logovonhaus.png';
 import { Link } from 'react-router-dom';
 import LoggedIn from '../fragments/LoggedIn';
 import '../scss/Header.scss';
-import { LoginContext } from '../contexts/LoginContext';
 
 const Header: React.FC = () => {
     const [activeLink, setActiveLink] = useState('Inicio'); // Inicialmente establece "Inicio" como activo
@@ -63,7 +62,7 @@ const Header: React.FC = () => {
                                     <Link
                                         className="nav-link button is-active is-hoverable is-primary"
                                         to="/admin"
-                                        onClick={() => handleLinkClick('Blog')}
+                                        onClick={() => handleLinkClick('Panel')}
                                     >
                                         Panel
                                     </Link>

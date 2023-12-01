@@ -1,5 +1,5 @@
 @import './commons.scss';
-@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@500&family=Playfair+Display:ital,wght@1,400;1,500&display=swap'); 
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@500&family=Playfair+Display:ital,wght@1,400;1,500&display=swap');
 
 .home-section {
     position: relative;
@@ -20,6 +20,23 @@
 
     font-weight: bold;
     @include selectFont('Open Sans');
+}
+
+.dashboard-title {
+    margin: 2rem 0 1.5rem;
+    padding: 0.5rem 0 2rem 0;
+
+    @include selectFont('Playfair Display');
+    font-size: 2.5rem;
+
+    color: #3cdac2;
+}
+
+.login-title {
+    @include selectFont('Playfair Display');
+    font-size: 1rem;
+
+    color: cornflowerblue;
 }
 
 .home-subtitle {
@@ -146,7 +163,7 @@
     color: #f69f2d;
     text-decoration: underline;
 
-    animation: sponsorFadeUp 3.5s ease-in-out infinite; 
+    animation: sponsorFadeUp 3.5s ease-in-out infinite;
 }
 
 footer {

@@ -2,6 +2,7 @@ import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import Login from './Login';
 import { useNavigate } from 'react-router-dom';
+import '../scss/Home.scss';
 
 const LoggedIn: React.FC = () => {
     const [adminData, setAdminData] = useState<any[]>([]);
@@ -49,11 +50,11 @@ const LoggedIn: React.FC = () => {
             {
                 isToken ?
                     adminData.map((data) => {
-                        const { name, surname } = data
+                        const { name, surname } = data;
                         return (
                             <>
                                 <div>
-                                    <h3 className='text-primary ms-1 me-2'>Bienvenido {name} {surname}</h3>
+                                    <h3 className='login-title ms-1 me-2'>Bienvenido {name} {surname}</h3>
                                 </div>
                                 <button onClick={handleLogout} className='button is-danger ms-2'>Salir</button>
                             </>
