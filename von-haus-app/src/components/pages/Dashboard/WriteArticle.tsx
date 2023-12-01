@@ -35,6 +35,7 @@ const WriteArticle: React.FC = () => {
         // Verifica si se seleccionó una imagen
         if (!image) {
             console.error('Debes seleccionar una imagen');
+            alert("Debes seleccionar una imagen");
             return;
         }
 
@@ -58,16 +59,18 @@ const WriteArticle: React.FC = () => {
         } catch (error) {
             // Captura y registra cualquier error que ocurra durante la solicitud
             console.error(`Ocurrió un error al cargar el artículo: ${error}`);
+            alert("Ocurrió un error al cargar el articulo");
         } finally {
             // Registra en la consola y redirige a la página principal
             console.log(`Se envió la noticia para cargar`);
+            alert("Se envió la noticia correctamente");
             navigate('/'); // Redirigir a la página principal o a donde sea necesario
         }
     };
 
     // Renderiza el formulario para crear un artículo
     return (
-        <div className="container mt-3">
+        <div className="container mt-5 mb-5">
             <h1 className='mb-3 text-center admin-title'>Publicar un Artículo</h1>
 
             <div className='container ms-5'>

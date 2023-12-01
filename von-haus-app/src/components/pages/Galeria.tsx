@@ -102,8 +102,8 @@ const Galeria: React.FC = () => {
                                         </div>
 
                                         <div className="content">
-                                            <p className='mt-3 mb-3'>{descripcion}</p>
                                             <time className='mt-3 mb-3'>Fecha: {new Date(createdAt).toLocaleDateString()}</time>
+                                            <p className='mt-3 mb-3'>{descripcion}</p>
                                         </div>
                                     </div>
                                 </div>
