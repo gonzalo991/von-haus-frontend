@@ -3,7 +3,6 @@ import { Link, useNavigate } from 'react-router-dom';
 import imgAdd from '../../img/escribir.jpg';
 import imgListas from '../../img/listas.jpg';
 import imgGaleria from '../../img/galeria.jpg';
-import imgBorrado from '../../img/borrado.png';
 import '../../scss/Home.scss';
 
 const Dashboard: React.FC = () => {
@@ -43,12 +42,6 @@ const Dashboard: React.FC = () => {
                         </div>
                     </div>
 
-                    <div className="card col-md-6 col-12 tarjetas mb-3" style={{ border: "none" }}>
-                        <img src={imgBorrado} className="card-img-top" alt="agregar imagen"  style={{height:"23rem"}} />
-                        <div className="card-body text-center">
-                            <Link to="/admin/eliminar" className="button is-danger">Eliminar Contenido</Link>
-                        </div>
-                    </div>
                 </div>
             </div>
         </>

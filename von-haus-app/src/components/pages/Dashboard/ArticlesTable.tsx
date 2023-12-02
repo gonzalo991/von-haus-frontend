@@ -41,15 +41,15 @@ const ArticlesTable: React.FC = () => {
     return (
         <>
             <h2 className='text-center listado-titulo admin-title'>Listado de Artículos</h2>
-            <div className='table-container m-auto ms-5 mt-5 mb-2'>
-                <table className='table is-hoverable is-bordered mt-5 mb-2 ms-3 tabla-articulos'>
+            <div className='table-container m-auto ms-5 mt-5 mb-2 me-2'>
+                <table className='table is-hoverable is-stripped is-bordered mt-5 mb-5 ms-3 me-3 tabla-articulos'>
                     <thead>
                         <tr>
-                            <th>Id del Artículo</th>
-                            <th>Titulo</th>
-                            <th>Subtitulo</th>
-                            <th>Editar</th>
-                            <th>Borrar</th>
+                            <th className='id_table'>Id del Artículo</th>
+                            <th className='has-text-primary'>Titulo</th>
+                            <th className='has-text-success'>Subtitulo</th>
+                            <th className='has-text-warning'>Editar</th>
+                            <th className='has-text-danger'>Borrar</th>
                         </tr>
                     </thead>
                     <tbody>

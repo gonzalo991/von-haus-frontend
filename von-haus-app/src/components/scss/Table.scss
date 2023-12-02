@@ -11,10 +11,14 @@
 }
 
 .table-container {
-    margin-left: 20vw !important;
+    margin-left: 10vw !important;
 
     .tabla-articulos {
         height: auto;
-        width: 60vw;
+        width: 80vw;
+
+        .id_table {
+            color: cornflowerblue;
+        }
     }
 }
