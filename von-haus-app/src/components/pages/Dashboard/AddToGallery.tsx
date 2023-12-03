@@ -39,7 +39,7 @@ const AddToGallery: React.FC = () => {
             try {
                 // Envía la solicitud POST al servidor con los datos del formulario
                 // Tengo que crear el controlador en el backend antes de probar
-                const response = await axios.post(
+                await axios.post(
                     'https://von-haus-data-backend.onrender.com/gallery/addCard',
                     formData,
                     {

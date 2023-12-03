@@ -76,9 +76,9 @@ const Blog: React.FC = () => {
 
                                         <div className="col p-4 d-flex flex-column position-static">
                                             <strong className="d-inline-block mb-2 text-primary">{titulo}</strong>
-                                            <h3 className="mb-0">{subtitulo}</h3>
-                                            <div className="mb-1 mt-1 text-muted">Fecha: {dateString}</div>
-                                            <div className='card-text' dangerouslySetInnerHTML={{ __html: texto.substring(0, 150)+"..." }} />
+                                            <div className="mb-2 mt-1 text-muted">Fecha: {dateString}</div>
+                                            <h3 className="mb-1">{subtitulo.substring(0, 200) + "..."}</h3>
+                                            <div className='card-text' dangerouslySetInnerHTML={{ __html: texto.substring(0, 150) + "..." }} />
                                             <Link className='button is-link' to={`/detalle?id_articulo=${_id}`}>Leer +</Link>
                                         </div>
 

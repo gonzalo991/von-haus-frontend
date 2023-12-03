@@ -8,6 +8,7 @@ import { Article } from '../../types/Types';
 
 const ArticlesTable: React.FC = () => {
     const [listado, setListado] = useState<Article[]>([]);
+    const token = localStorage.getItem('token');
 
     useEffect(() => {
         const fetchData = async () => {
@@ -29,11 +30,27 @@ const ArticlesTable: React.FC = () => {
 
     const handleDeleteArticle = async ({ _id }: ArticleProps) => {
         try {
-            const response = await axios.delete(`https://von-haus-data-backend.onrender.com/deleteArticle/${_id}`);
-            console.info(`Se borró el artículo con el id: ${_id}. \nRespuesta del servidor: ${response.data}`);
-            window.alert('El artículo se borró');
+            const response = await axios.delete(
+                `https://von-haus-data-backend.onrender.com/articulos/deleteArticle/${_id}`,
+                {
+                    headers: {
+                        Authorization: `Bearer ${token}`,
+                    },
+                }
+            );
+
+            if (response.status === 200) {
+                console.info(`Se borró el artículo con el id: ${_id}. \nRespuesta del servidor: ${response.data}`);
+                window.alert('El artículo se borró');
+                setTimeout(() => {
+                    window.location.reload();
+                }, 1000);
+            } else {
+                console.error(`Error al eliminar el artículo. Código de estado: ${response.status}`);
+                window.alert('No se pudo borrar el artículo');
+            }
         } catch (error) {
-            console.error('Error al eliminar el artículo:', error);
+            console.error(`Error al eliminar el artículo: ${error}`);
             window.alert('No se pudo borrar el artículo');
         }
     };
@@ -59,11 +76,16 @@ const ArticlesTable: React.FC = () => {
                                 <td>{article.titulo}</td>
                                 <td>{article.subtitulo}</td>
                                 <td>
-                                    <EditButton _id={article._id}/>
+                                    <EditButton _id={article._id} />
                                 </td>
                                 <td>
                                     <button
-                                        onClick={() => handleDeleteArticle({ _id: article._id })}
+                                        onClick={() => {
+                                            const confirmDelete = window.confirm('¿Estás seguro de que quieres eliminar este artículo?');
+                                            if (confirmDelete) {
+                                                handleDeleteArticle({ _id: article._id });
+                                            }
+                                        }}
                                         className='btn btn-danger'
                                     >
                                         <MdDeleteForever />

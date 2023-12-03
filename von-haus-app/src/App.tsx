@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { BrowserRouter } from 'react-router-dom';
+import { HashRouter } from 'react-router-dom';
 import Header from './components/layout/Header';
 import Footer from './components/layout/Footer';
 import Router from './Router';
@@ -11,7 +11,7 @@ function App() {
 
   return (
     <>
-      <BrowserRouter>
+      <HashRouter>
         <LoginProvider>
           <Header />
           <main>
@@ -19,7 +19,7 @@ function App() {
           </main>
           <Footer />
         </LoginProvider>
-      </BrowserRouter>
+      </HashRouter>
     </>
   )
 }

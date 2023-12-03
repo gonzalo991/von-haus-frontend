@@ -50,10 +50,10 @@ const LoggedIn: React.FC = () => {
             {
                 isToken ?
                     adminData.map((data) => {
-                        const { name, surname } = data;
+                        const { _id, name, surname } = data;
                         return (
                             <>
-                                <div>
+                                <div key={_id}>
                                     <h3 className='login-title ms-1 me-2'>Bienvenido {name} {surname}</h3>
                                 </div>
                                 <button onClick={handleLogout} className='button is-danger ms-2'>Salir</button>
