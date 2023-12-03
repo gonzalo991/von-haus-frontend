@@ -27,7 +27,7 @@ const LoggedIn: React.FC = () => {
 
                 setAdminData(response.data);
             } catch (error) {
-                console.error(`Ocurrió un error al cargar los datos de administrador: ${error}`);
+                window.alert(`Ocurrió un error al cargar los datos de administrador`);
             }
         };
 

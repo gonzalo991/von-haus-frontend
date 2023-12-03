@@ -43,7 +43,6 @@ const Login: React.FC = () => {
                 });
 
                 const data = response.data;
-                console.log(data);
 
                 if (data && data.token && data.username) {
                     const { token, username } = data;
@@ -55,16 +54,14 @@ const Login: React.FC = () => {
                     setLogin(true);
                     navigate('/admin');  // Navegamos al panel de administrador
                     setIsOpen(false); // Cerramos el modal
-                    
+
                     setTimeout(() => {
                         window.location.reload();
                     }, 2000);
-                    
-                } else {
-                    console.error('No se encontró el token o el nombre de usuario en la respuesta.');
+
                 }
+
             } catch (error) {
-                console.error(`Hubo un error al iniciar sesión: ${error}`);
                 alert('Ingreso denegado');
             }
         }

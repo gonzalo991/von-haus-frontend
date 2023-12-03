@@ -15,12 +15,9 @@ const ArticlesTable: React.FC = () => {
             try {
                 const response = await axios.get<Article[]>('https://von-haus-data-backend.onrender.com/articulos/getArticles');
                 const data = response.data;
-                console.log('Respuesta del servidor:\n', data);
                 setListado(data);
             } catch (error) {
-                console.error(`Ocurrió un error al cargar los artículos: ${error}`);
-            } finally {
-                console.log('Se ha refrescado la página');
+                window.alert(`Ocurrió un error al cargar los artículos`);
             }
         };
 
@@ -40,18 +37,13 @@ const ArticlesTable: React.FC = () => {
             );
 
             if (response.status === 200) {
-                console.info(`Se borró el artículo con el id: ${_id}. \nRespuesta del servidor: ${response.data}`);
                 window.alert('El artículo se borró');
                 setTimeout(() => {
                     window.location.reload();
                 }, 1000);
-            } else {
-                console.error(`Error al eliminar el artículo. Código de estado: ${response.status}`);
-                window.alert('No se pudo borrar el artículo');
             }
         } catch (error) {
-            console.error(`Error al eliminar el artículo: ${error}`);
-            window.alert('No se pudo borrar el artículo');
+            window.alert('Error no se pudo borrar el artículo');
         }
     };
 

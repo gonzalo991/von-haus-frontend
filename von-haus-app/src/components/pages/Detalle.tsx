@@ -14,7 +14,6 @@ const Detalle: React.FC = () => {
             await axios.get(endpoint).then((response) => {
                 const data = response.data;
                 setArticulo(data);
-                console.info(`Articulo con el id: ${data._id} cargado!`);
             }).catch((err) => {
                 console.error(`Ocurrió un error al cargar los detalles del articulo: ${err}`);
             })

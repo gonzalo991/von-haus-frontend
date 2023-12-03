@@ -35,7 +35,6 @@ const EditButton: React.FC<ArticleProps> = ({ _id }) => {
 
         // Verifica si se seleccionó una imagen
         if (!image) {
-            console.error('Debes seleccionar una imagen');
             alert("Debes seleccionar una imagen");
             return;
         }
@@ -56,24 +55,16 @@ const EditButton: React.FC<ArticleProps> = ({ _id }) => {
                         Authorization: `Bearer ${token}`,
                     }
                 });
-                // Registra en la consola la respuesta del servidor
-                console.log(`Se enviaron los datos para crear un artículo: \n${response.data}`);
             } catch (error) {
-                // Devuelve un mensaje de error y estado 500
-                console.error(`An error occurred during update: ${error}`);
                 alert("Error al actualizar el articulo");
             }
             finally {
-                // Registra en la consola y redirige a la página principal
-             //   console.log(`Se envió la noticia para cargar`);
-              //  alert("Se publicó el articulo correctamente");
-                /*
-                 setTimeout(() => {
-                     window.location.reload(); 
-                 }, 1000) */
+                setTimeout(() => {
+                    window.location.reload();
+                }, 1000)
             }
         } else {
-            console.log("Valores vacíos");
+            window.alert("Valores del formulario vacíos");
         }
     }
 

@@ -60,7 +60,7 @@ const Header: React.FC = () => {
                             isLogin ?
                                 <li className={`nav-item ${activeLink === 'Panel' ? 'active' : ''}`}>
                                     <Link
-                                        className="nav-link button is-active is-hoverable is-primary"
+                                        className="nav-link-panel button is-active is-hoverable is-primary"
                                         to="/admin"
                                         onClick={() => handleLinkClick('Panel')}
                                     >

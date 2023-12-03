@@ -45,14 +45,11 @@ const Blog: React.FC = () => {
                 const data = response.data;
                 setArticle(data);
             }).catch((err) => {
-                console.error(`Ocurrio un error al cargar los articulos: ${err}`)
                 alert("No se pudo cargar los datos");
             })
 
         })();
     }, []);
-
-    console.log(article);
 
     return (
         <>

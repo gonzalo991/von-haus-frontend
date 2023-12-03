@@ -46,16 +46,14 @@ const Galeria: React.FC = () => {
             await axios.get<Gallery[]>(endpoint).then((response) => {
                 const data = response.data;
                 setGaleria(data);
-                console.info(`Datos de la galeria cargados: ${data}`);
             }).catch((error) => {
-                console.error(`Ocurrió un error al cargar los datos de la galeria: \n ${error}`);
+                window.alert(`Ocurrió un error al cargar los datos de la galeria`);
             })
         }
 
         fetchData();
     }, []);
-
-    console.log(galeria)
+    
     return (
         <>
             <Slider />

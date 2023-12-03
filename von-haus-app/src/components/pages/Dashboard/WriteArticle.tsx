@@ -35,7 +35,6 @@ const WriteArticle: React.FC = () => {
 
         // Verifica si se seleccionó una imagen
         if (!image) {
-            console.error('Debes seleccionar una imagen');
             alert("Debes seleccionar una imagen");
             return;
         }
@@ -60,11 +59,9 @@ const WriteArticle: React.FC = () => {
                 console.log(`Se enviaron los datos para crear un artículo: \n${response.data}`);
             } catch (error) {
                 // Captura y registra cualquier error que ocurra durante la solicitud
-                console.error(`Ocurrió un error al cargar el artículo: ${error}`);
                 alert("Ocurrió un error al cargar el articulo");
             } finally {
                 // Registra en la consola y redirige a la página principal
-                console.log(`Se envió la noticia para cargar`);
                 alert("Se publicó el articulo correctamente");
                 setTimeout(() => {
                     navigate('/blog'); // Redirigir a la página principal o a donde sea necesario

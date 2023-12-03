@@ -22,7 +22,7 @@ const AddToGallery: React.FC = () => {
 
         // Verifica si se seleccionó una imagen
         if (!image) {
-            console.error('Debes seleccionar una imagen');
+            window.alert('Debes seleccionar una imagen');
             return;
         }
 
@@ -31,9 +31,6 @@ const AddToGallery: React.FC = () => {
         formData.append('titulo', titulo);
         formData.append('image', image);
         formData.append('descripcion', descripcion);
-
-        console.log(titulo, image, descripcion);
-        console.log(`form data: ${formData}`)
 
         if (token) {
             try {
@@ -57,14 +54,12 @@ const AddToGallery: React.FC = () => {
 
             } catch (error) {
                 // Captura y registra cualquier error que ocurra durante la solicitud
-                console.error(`Ocurrió un error al cargar el artículo: ${error}`);
+                window.alert(`Ocurrió un error al cargar el artículo`);
             } finally {
                 // Registra en la consola y redirige a la página principal
-                console.log(`Se envió la noticia para cargar`);
+                window.alert(`Se cargó el articulo correctamente`);
             }
-        } else {
-            console.log("No se encontró el token");
-        }
+        } 
     };
 
     return (
