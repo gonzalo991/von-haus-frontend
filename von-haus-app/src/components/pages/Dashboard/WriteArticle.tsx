@@ -7,20 +7,47 @@ import 'react-quill/dist/quill.snow.css';
 import { modules, formats } from '../../libs/quillformats';
 import '../../scss/Form.scss';
 
-// Definición del componente funcional React llamado WriteArticle
+/**
+ * Componente funcional React que representa la interfaz para la creación y publicación de artículos.
+ * Utiliza React Quill como editor de texto enriquecido para el contenido del artículo.
+ * @component
+ */
 const WriteArticle: React.FC = () => {
+    /**
+     * Estado para almacenar el contenido del artículo en formato HTML.
+     * @type {string}
+     */
     const [texto, setTexto] = useState<string>("");
-    // Hook de enrutamiento de React Router
+
+    /**
+     * Hook de enrutamiento de React Router.
+     * @type {Function}
+     */
     const navigate = useNavigate();
+
+    /**
+     * Token de autenticación almacenado en el localStorage.
+     * @type {?string}
+     */
     const token = localStorage.getItem('token');
 
+    /**
+     * Maneja el cambio de contenido en el editor React Quill.
+     * @param {string} content - Contenido HTML del editor.
+     * @returns {void}
+     */
     const handleEditorChange = (content: string) => {
         setTexto(content);
     };
 
-    // Maneja la presentación del formulario y envía los datos al servidor
+    /**
+     * Maneja la presentación del formulario y envía los datos del artículo al servidor.
+     * @param {React.FormEvent<HTMLFormElement>} ev - Evento de formulario.
+     * @returns {Promise<void>}
+     */
     const handleSubmit = async (ev: React.FormEvent<HTMLFormElement>) => {
         ev.preventDefault();
+
         // Accede a los elementos del formulario de manera segura usando TypeScript
         const target = ev.target as typeof ev.target & {
             titulo: { value: string };
@@ -55,6 +82,7 @@ const WriteArticle: React.FC = () => {
                         'Authorization': `Bearer ${token}`
                     },
                 });
+
                 // Registra en la consola la respuesta del servidor
                 console.log(`Se enviaron los datos para crear un artículo: \n${response.data}`);
             } catch (error) {
@@ -70,7 +98,10 @@ const WriteArticle: React.FC = () => {
         }
     };
 
-    // Renderiza el formulario para crear un artículo
+    /**
+     * Renderiza el formulario para crear un artículo.
+     * @returns {JSX.Element}
+     */
     return (
         <div className="container mt-5 mb-5">
             <h1 className="mx-auto mb-3 text-center px-auto admin-title">Publicar un Artículo</h1>

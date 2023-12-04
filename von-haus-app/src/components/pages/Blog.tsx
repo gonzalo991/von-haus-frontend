@@ -5,52 +5,57 @@ import axios from 'axios';
 import { Article } from '../types/Types';
 import Pagination from '../utilities/Paginacion';
 
+/**
+ * Componente funcional que representa la página principal del blog.
+ * Muestra una lista paginada de artículos con información resumida.
+ */
 const Blog: React.FC = () => {
+    // Estado local que almacena la lista de artículos.
     const [article, setArticle] = useState<Article[]>([]);
+
+    // Estado local que almacena el número de la página actual.
     const [currentPage, setCurrentPage] = useState<number>(1);
 
-    //Datos de la páginación
+    // Datos de la paginación
     const articulosPorPagina: number = 8;
     const totalDePaginas: number = Math.ceil(article.length / articulosPorPagina);
-
-    // Calcula el índice inicial y final de las noticias a mostrar en la página actual
     const startIndex: number = (currentPage - 1) * articulosPorPagina;
     const endIndex: number = (startIndex + articulosPorPagina) - 1;
-
     const articulosActuales = article.slice(startIndex, endIndex + 1);
 
-    //Función para cambiar de página
+    // Función para cambiar de página
     const handleGoToPage = (pageNumber: number) => {
         setCurrentPage(pageNumber);
     };
 
-    // Función para manejar el evento del botón "Anterior"
+    // Funciones para manejar eventos de los botones "Anterior" y "Siguiente".
     const handlePreviousPage = () => {
         if (currentPage > 1) {
             setCurrentPage(currentPage - 1);
         }
     };
 
-    // Función para manejar el evento del botón "Siguiente"
     const handleNextPage = () => {
         if (currentPage < totalDePaginas) {
             setCurrentPage(currentPage + 1);
         }
     };
 
+    // Efecto que carga los artículos al montar el componente.
     useEffect(() => {
         (async () => {
             const endpoint = 'https://von-haus-data-backend.onrender.com/articulos/getArticles';
-            await axios.get<Article[]>(endpoint).then(response => {
+            try {
+                const response = await axios.get<Article[]>(endpoint);
                 const data = response.data;
                 setArticle(data);
-            }).catch((err) => {
+            } catch (error) {
                 alert("No se pudo cargar los datos");
-            })
-
+            }
         })();
     }, []);
 
+    // Renderiza la interfaz de la página principal del blog.
     return (
         <>
             <main className="container mt-5">

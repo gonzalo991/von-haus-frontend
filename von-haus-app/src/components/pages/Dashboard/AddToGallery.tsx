@@ -2,10 +2,19 @@ import React from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 
+/**
+ * Componente funcional que maneja la presentación del formulario y envía los datos al servidor para agregar una imagen a la galería.
+ * @component
+ * @returns {JSX.Element} - Elemento JSX que representa el formulario de carga de imágenes.
+ */
 const AddToGallery: React.FC = () => {
     const token = localStorage.getItem('token');
     const navigate = useNavigate();
-    // Maneja la presentación del formulario y envía los datos al servidor
+
+    /**
+     * Maneja el evento de envío del formulario, recopila los datos del formulario y realiza una solicitud POST al servidor.
+     * @param {React.FormEvent<HTMLFormElement>} ev - Evento de envío del formulario.
+     */
     const handleSubmit = async (ev: React.FormEvent<HTMLFormElement>) => {
         ev.preventDefault();
         // Accede a los elementos del formulario de manera segura usando TypeScript

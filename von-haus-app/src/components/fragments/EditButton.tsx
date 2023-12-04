@@ -6,19 +6,51 @@ import { modules, formats } from "../libs/quillformats";
 import axios from "axios";
 import { ArticleProps } from "../types/Types";
 
+/**
+ * Componente EditButton
+ * 
+ * Este componente representa un botón de edición que, al hacer clic, muestra un formulario
+ * modal para editar un artículo. Utiliza un editor de texto (React Quill) para la edición del contenido.
+ * 
+ * @component
+ * @example
+ * // Uso en otro componente
+ * import EditButton from './EditButton';
+ * // ...
+ * <EditButton _id="id_del_articulo" />
+ * 
+ * @param {ArticleProps} props - Propiedades del componente.
+ * @returns {JSX.Element} El componente EditButton.
+ */
 const EditButton: React.FC<ArticleProps> = ({ _id }) => {
+    // Estado para controlar la visibilidad del formulario modal
     const [isOpen, setIsOpen] = useState<boolean>(false);
+    // Estado para almacenar el contenido del editor de texto (React Quill)
     const [texto, setTexto] = useState<string>("");
+    // Token de autenticación almacenado en el localStorage
     const token = localStorage.getItem('token');
 
+    /**
+     * Manejador de evento para alternar la visibilidad del formulario modal.
+     */
     const handleToggle = () => {
         setIsOpen(!isOpen);
     }
 
+    /**
+     * Manejador de evento para actualizar el estado del contenido del editor de texto.
+     * 
+     * @param {string} content - Contenido del editor de texto.
+     */
     const handleEditorChange = (content: string) => {
         setTexto(content);
     };
 
+    /**
+     * Manejador de evento para enviar el formulario de edición al servidor.
+     * 
+     * @param {React.FormEvent<HTMLFormElement>} ev - Evento de formulario.
+     */
     const handleSubmit = async (ev: React.FormEvent<HTMLFormElement>) => {
         ev.preventDefault();
         // Accede a los elementos del formulario de manera segura usando TypeScript
@@ -56,9 +88,10 @@ const EditButton: React.FC<ArticleProps> = ({ _id }) => {
                     }
                 });
             } catch (error) {
-                alert("Error al actualizar el articulo");
+                alert("Error al actualizar el artículo");
             }
             finally {
+                // Recarga la página después de la actualización
                 setTimeout(() => {
                     window.location.reload();
                 }, 1000)

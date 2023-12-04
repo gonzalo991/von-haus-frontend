@@ -4,7 +4,6 @@ import imgRegalos2 from '../img/regalos_3.jpeg';
 import jaspe from '../img/Jaspe_Premium_Criadores_Negro.png';
 import '../scss/Home.scss';
 
-// https://www.kapwing.com/videos/655cc24e25ffa89191c29007 video pastor
 
 const SecondSlider: React.FC = () => {
     return (

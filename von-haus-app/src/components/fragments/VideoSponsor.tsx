@@ -1,6 +1,9 @@
 import React, {useState, useEffect} from 'react';
 import '../scss/Home.scss'
 
+/**
+ * Componente funcional que muestra el video del patrocinador oficial.
+ */
 const VideoSponsor: React.FC = () => {
 
     return (

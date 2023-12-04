@@ -6,6 +6,10 @@ import '../scss/Home.scss';
 import '../scss/Animations.scss';
 import AnimatedTitle from '../layout/AnimatedTitle';
 
+/**
+ * Componente funcional que representa la sección de Servicios del criadero.
+ * Incluye información sobre Adiestramiento, Escuela y Ventas.
+ */
 const Servicios: React.FC = () => {
 
     return (

@@ -6,11 +6,18 @@ import EditButton from '../../fragments/EditButton';
 import '../../scss/Table.scss';
 import { Article } from '../../types/Types';
 
+/**
+ * Componente funcional que representa una tabla de artículos con opciones de edición y eliminación.
+ * @returns {JSX.Element} Elemento JSX que contiene la tabla de artículos.
+ */
 const ArticlesTable: React.FC = () => {
     const [listado, setListado] = useState<Article[]>([]);
     const token = localStorage.getItem('token');
 
     useEffect(() => {
+        /**
+         * Función asíncrona para obtener y establecer el listado de artículos desde el servidor.
+         */
         const fetchData = async () => {
             try {
                 const response = await axios.get<Article[]>('https://von-haus-data-backend.onrender.com/articulos/getArticles');
@@ -24,7 +31,10 @@ const ArticlesTable: React.FC = () => {
         fetchData();
     }, []);
 
-
+    /**
+     * Maneja la eliminación de un artículo dado su ID.
+     * @param {ArticleProps} article - Propiedades del artículo que se va a eliminar.
+     */
     const handleDeleteArticle = async ({ _id }: ArticleProps) => {
         try {
             const response = await axios.delete(

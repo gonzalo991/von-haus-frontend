@@ -9,7 +9,14 @@ import VideoSponsor from '../fragments/VideoSponsor';
 import { ImageVisibility } from '../libs/ImageVisibility';
 // import SecondSlider from '../layout/SecondSlider';
 
+/**
+ * Componente funcional para la página principal (Home).
+ * 
+ * Este componente representa la página principal del sitio web
+ * del criadero de perros Pastores Alemanes "Von Haus Lola Mora".
+ */
 const Home: React.FC = () => {
+    // Obtiene el estado de visibilidad de la imagen mediante el hook personalizado.
     const { isImageLoaded, isImageVisible } = ImageVisibility(imgCriador);
 
     return (

@@ -5,55 +5,81 @@ import Slider from '../layout/Slider';
 import { Gallery } from '../types/Types';
 import axios from 'axios';
 
+/**
+ * Componente funcional React para la sección de Galería.
+ * Muestra una galería de fotos con paginación y una presentación de diapositivas.
+ * @component
+ * @returns {JSX.Element} - Elemento JSX que representa la sección de Galería.
+ */
 const Galeria: React.FC = () => {
 
+    // Estado local para almacenar los datos de la galería.
     const [galeria, setGaleria] = useState<Gallery[]>([]);
+
+    // Estado local para el número de la página actual en la paginación.
     const [currentPage, setCurrentPage] = useState<number>(1);
 
-    //Datos de la páginación
+    // Datos de la paginación.
     const tarjetasPorPagina: number = 9;
     const totalDePaginas: number = Math.ceil(galeria.length / tarjetasPorPagina);
 
-    // Calcula el índice inicial y final de las noticias a mostrar en la página actual
+    // Calcula el índice inicial y final de las tarjetas a mostrar en la página actual.
     const startIndex: number = (currentPage - 1) * tarjetasPorPagina;
     const endIndex: number = (startIndex + tarjetasPorPagina) - 1;
 
+    // Filtra las tarjetas a mostrar en la página actual.
     const articulosActuales = galeria.slice(startIndex, endIndex + 1);
 
-    //Función para cambiar de página
-    const handleGoToPage = (pageNumber: number) => {
+    /**
+     * Función para cambiar de página en la paginación.
+     * @param {number} pageNumber - Número de la página a la que se desea ir.
+     * @returns {void}
+     */
+    const handleGoToPage = (pageNumber: number): void => {
         setCurrentPage(pageNumber);
     };
 
-    // Función para manejar el evento del botón "Anterior"
-    const handlePreviousPage = () => {
+    /**
+     * Función para manejar el evento del botón "Anterior" en la paginación.
+     * @returns {void}
+     */
+    const handlePreviousPage = (): void => {
         if (currentPage > 1) {
             setCurrentPage(currentPage - 1);
         }
     };
 
-    // Función para manejar el evento del botón "Siguiente"
-    const handleNextPage = () => {
+    /**
+     * Función para manejar el evento del botón "Siguiente" en la paginación.
+     * @returns {void}
+     */
+    const handleNextPage = (): void => {
         if (currentPage < totalDePaginas) {
             setCurrentPage(currentPage + 1);
         }
     };
 
-
+    // Efecto de carga de datos al montar el componente.
     useEffect(() => {
+        // Endpoint de la API para obtener las tarjetas de la galería.
         const endpoint = "https://von-haus-data-backend.onrender.com/gallery/cards";
-        const fetchData = async () => {
-            await axios.get<Gallery[]>(endpoint).then((response) => {
+
+        // Función asíncrona para realizar la solicitud GET y actualizar el estado local.
+        const fetchData = async (): Promise<void> => {
+            try {
+                const response = await axios.get<Gallery[]>(endpoint);
                 const data = response.data;
                 setGaleria(data);
-            }).catch((error) => {
-                window.alert(`Ocurrió un error al cargar los datos de la galeria`);
-            })
-        }
+            } catch (error) {
+                window.alert(`Ocurrió un error al cargar los datos de la galería`);
+            }
+        };
 
+        // Llama a la función fetchData.
         fetchData();
     }, []);
-    
+
+    // JSX que representa la estructura del componente Galeria.
     return (
         <>
             <Slider />

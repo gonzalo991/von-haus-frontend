@@ -4,17 +4,39 @@ import { Link } from 'react-router-dom';
 import LoggedIn from '../fragments/LoggedIn';
 import '../scss/Header.scss';
 
+/**
+ * Componente funcional que representa la barra de navegación superior (header) de la aplicación.
+ * 
+ * Este componente incluye la navegación principal, enlaces a secciones clave y un área de inicio de sesión.
+ *
+ * @component
+ * @example
+ * // Uso en otro componente
+ * import Header from './Header';
+ * // ...
+ * <Header />
+ *
+ * @returns {JSX.Element} El elemento JSX que representa la barra de navegación superior.
+ */
+
 const Header: React.FC = () => {
     const [activeLink, setActiveLink] = useState('Inicio'); // Inicialmente establece "Inicio" como activo
     const [isLogin, setIsLogin] = useState<boolean>(false);
 
+    // Obtenemos el token usando el hook useEffect
     useEffect(() => {
-        const token = localStorage.getItem('token');
-        if (token)
-            setIsLogin(true);
-    }, [])
+        const token = localStorage.getItem('token'); // obtenemos el token desde el localstorage
+        if (token) { // Evaluamos si existe
+            setIsLogin(true); // Seteamos el estado booleano a true
+        }
+    }, []);
 
-    const handleLinkClick = (linkName: any) => {
+    /**
+     * Maneja el clic en un enlace y actualiza el estado del enlace activo.
+     * @param {string} linkName - El nombre del enlace que se hizo clic.
+     * @returns {void}
+     */
+    const handleLinkClick = (linkName: string): void => {
         setActiveLink(linkName);
     };
 

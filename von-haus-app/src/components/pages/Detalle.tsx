@@ -3,6 +3,11 @@ import axios from 'axios';
 import { Article } from '../types/Types';
 import { Link, useLocation } from 'react-router-dom';
 
+/**
+ * Componente funcional que muestra los detalles de un artículo específico.
+ * @component
+ * @returns {JSX.Element} - Elemento JSX que representa los detalles del artículo.
+ */
 const Detalle: React.FC = () => {
     const location = useLocation();
     let query = new URLSearchParams(location.search);
@@ -10,19 +15,25 @@ const Detalle: React.FC = () => {
     const [articulo, setArticulo] = useState<Article>();
 
     useEffect(() => {
-        const endpoint = `https://von-haus-data-backend.onrender.com/articulos/${_id}`;
+        /**
+         * Función asíncrona que realiza una solicitud GET al servidor para obtener los detalles del artículo.
+         * @async
+         * @function
+         * @param {_id} - Identificador único del artículo.
+         */
         const fetchData = async () => {
-            await axios.get(endpoint).then((response) => {
+            const endpoint = `https://von-haus-data-backend.onrender.com/articulos/${_id}`;
+            try {
+                const response = await axios.get(endpoint);
                 const data = response.data;
                 setArticulo(data);
-            }).catch((err) => {
-                console.error(`Ocurrió un error al cargar los detalles del articulo: ${err}`);
-            })
-        }
+            } catch (error) {
+                console.error(`Ocurrió un error al cargar los detalles del articulo: ${error}`);
+            }
+        };
 
         fetchData();
     }, [_id]);
-
 
     return (
         <>

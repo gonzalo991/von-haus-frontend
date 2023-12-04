@@ -3,6 +3,20 @@ import SliderImage1 from '../img/Gunther Von Haus Lola Mora.jpeg';
 import sliderImage2 from '../img/exposiciones_6.jpeg';
 import sliderImage3 from '../img/exposiciones_7.jpeg';
 
+/**
+ * Componente Slider.
+ * 
+ * Este componente muestra un carrusel de imágenes.
+ * 
+ * @component
+ * @example
+ * // Uso en otro componente
+ * import Slider from './Slider';
+ * // ...
+ * <Slider />
+ * 
+ * @returns {JSX.Element} El componente Slider que muestra un carrusel de imágenes.
+ */
 const Slider: React.FC = () => {
     return (
         <div id="carouselExampleFade" className="carousel slide" data-bs-ride="carousel" data-bs-interval="3000">
