@@ -1,5 +1,5 @@
 import React from 'react';
-import SliderImage1 from '../img/exposiciones_5.jpeg';
+import SliderImage1 from '../img/Gunther Von Haus Lola Mora.jpeg';
 import sliderImage2 from '../img/exposiciones_6.jpeg';
 import sliderImage3 from '../img/exposiciones_7.jpeg';
 
