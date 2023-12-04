@@ -26,29 +26,34 @@ const Detalle: React.FC = () => {
 
     return (
         <>
-            {
-                articulo ?
-                    <section className='text-center mt-6'>
+            {articulo ? (
+                <section className='text-center mt-6'>
+                    <article className='mt-5'>
+                        <h1 className='display-4 fw-bold'>{articulo.titulo}</h1>
+                        <p className='container text-center mt-2 mb-3'>
+                            <small className='noticia_hour'>{new Date(articulo.createdAt).toLocaleDateString()}</small> - {articulo.subtitulo}
+                        </p>
+                        <img
+                            className='img-fluid mt-3 mb-3'
+                            alt={`imagen de la noticia ${articulo.titulo.substring(0, 100)}`}
+                            src={`data:image/jpeg;base64,${articulo.image}`}
+                        />
+                    </article>
 
-                        <article className='mt-5'>
-                            <h1 >{articulo.titulo}</h1>
-                            <p className='container text-center mt-2 mb-3'><small className='noticia_hour'>{new Date(articulo.createdAt).toLocaleDateString()}</small> - {articulo.subtitulo}</p>
-                            <img className='nmt-3 mb-3'
-                                alt={`imagen de la noticia ${articulo.titulo.substring(0, 100)}`}
-                                src={`data:image/jpeg;base64,${articulo.image}`}
-                            />
-                        </article>
+                    <div dangerouslySetInnerHTML={{ __html: articulo.texto }} />
 
-                        <div dangerouslySetInnerHTML={{ __html: articulo.texto }} />
-
-                        <Link to='/blog' className='button is-link mt-5 mb-5'>Volver</Link>
-
-                    </section> :
-                    <div className='container text-center'>
-                        <h2 className='mt-5'>Cargando...</h2>
-                        <Link to='/blog' className='button is-link mt-5'>Volver</Link>
-                    </div>
-            }
+                    <Link to='/blog' className='button is-link mt-5 mb-5'>
+                        Volver
+                    </Link>
+                </section>
+            ) : (
+                <div className='container text-center'>
+                    <h2 className='mt-5'>Cargando...</h2>
+                    <Link to='/blog' className='button is-link mt-5'>
+                        Volver
+                    </Link>
+                </div>
+            )}
         </>
     )
 }
