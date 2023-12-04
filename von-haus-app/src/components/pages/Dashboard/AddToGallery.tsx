@@ -47,7 +47,7 @@ const AddToGallery: React.FC = () => {
                     }
                 );
 
-                alert("Datos enviados correctamente!");
+                alert("Imagen cargada correctamente!");
                 setTimeout(() => {
                     navigate("/galeria");
                 }, 1000);
@@ -55,9 +55,6 @@ const AddToGallery: React.FC = () => {
             } catch (error) {
                 // Captura y registra cualquier error que ocurra durante la solicitud
                 window.alert(`Ocurrió un error al cargar el artículo`);
-            } finally {
-                // Registra en la consola y redirige a la página principal
-                window.alert(`Se cargó el articulo correctamente`);
             }
         }
     };

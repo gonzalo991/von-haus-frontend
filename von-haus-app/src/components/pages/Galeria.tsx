@@ -11,7 +11,7 @@ const Galeria: React.FC = () => {
     const [currentPage, setCurrentPage] = useState<number>(1);
 
     //Datos de la páginación
-    const tarjetasPorPagina: number = 8;
+    const tarjetasPorPagina: number = 9;
     const totalDePaginas: number = Math.ceil(galeria.length / tarjetasPorPagina);
 
     // Calcula el índice inicial y final de las noticias a mostrar en la página actual
@@ -67,13 +67,13 @@ const Galeria: React.FC = () => {
                     </div>
                 </section>
 
-                <div className="row mx-auto ms-1 me-3">
+                <div className="row mx-auto ms-3 me-2">
                     {
-                        articulosActuales.map((gallery) => {
+                        articulosActuales.reverse().map((gallery) => {
                             const { _id, titulo, image, descripcion, createdAt } = gallery;
 
                             return (
-                                <div key={_id} className="card mt-5 mb-5 ms-1 me-1 col-4" style={{ width: 400, height: 550 }}>
+                                <div key={_id} className="card mt-5 mb-5 ms-4 me-1 col-4" style={{ width: 400, height: 550 }}>
                                     <div className="card-image">
                                         <figure className="image is-4by3">
                                             <img
