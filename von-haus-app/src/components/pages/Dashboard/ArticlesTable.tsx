@@ -50,43 +50,45 @@ const ArticlesTable: React.FC = () => {
     return (
         <>
             <h2 className='text-center listado-titulo admin-title'>Listado de Artículos</h2>
-            <div className='table-container m-auto ms-5 mt-5 mb-2 me-2'>
-                <table className='table is-hoverable is-stripped is-bordered mt-5 mb-5 ms-3 me-3 tabla-articulos'>
-                    <thead>
-                        <tr>
-                            <th className='id_table'>Id del Artículo</th>
-                            <th className='has-text-primary'>Titulo</th>
-                            <th className='has-text-success'>Subtitulo</th>
-                            <th className='has-text-warning'>Editar</th>
-                            <th className='has-text-danger'>Borrar</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {listado.map((article) => (
-                            <tr key={article._id}>
-                                <td>{article._id}</td>
-                                <td>{article.titulo}</td>
-                                <td>{article.subtitulo}</td>
-                                <td>
-                                    <EditButton _id={article._id} />
-                                </td>
-                                <td>
-                                    <button
-                                        onClick={() => {
-                                            const confirmDelete = window.confirm('¿Estás seguro de que quieres eliminar este artículo?');
-                                            if (confirmDelete) {
-                                                handleDeleteArticle({ _id: article._id });
-                                            }
-                                        }}
-                                        className='btn btn-danger'
-                                    >
-                                        <MdDeleteForever />
-                                    </button>
-                                </td>
+            <div className='table-container m-auto ms-3 mt-5 mb-5 me-3'>
+                <div className='table-responsive'>
+                    <table className='table is-hoverable is-stripped is-bordered tabla-articulos'>
+                        <thead>
+                            <tr>
+                                <th className='id_table'>Id</th>
+                                <th className='has-text-primary'>Título</th>
+                                <th className='has-text-success d-none d-md-table-cell'>Subtítulo</th>
+                                <th className='has-text-warning'>Editar</th>
+                                <th className='has-text-danger'>Borrar</th>
                             </tr>
-                        ))}
-                    </tbody>
-                </table>
+                        </thead>
+                        <tbody>
+                            {listado.map((article) => (
+                                <tr key={article._id}>
+                                    <td>{article._id}</td>
+                                    <td>{article.titulo}</td>
+                                    <td className='has-text-success d-none d-md-table-cell'>{article.subtitulo}</td>
+                                    <td>
+                                        <EditButton _id={article._id} />
+                                    </td>
+                                    <td>
+                                        <button
+                                            onClick={() => {
+                                                const confirmDelete = window.confirm('¿Estás seguro de que quieres eliminar este artículo?');
+                                                if (confirmDelete) {
+                                                    handleDeleteArticle({ _id: article._id });
+                                                }
+                                            }}
+                                            className='btn btn-danger btn-sm' // Ajusta el tamaño del botón
+                                        >
+                                            <MdDeleteForever />
+                                        </button>
+                                    </td>
+                                </tr>
+                            ))}
+                        </tbody>
+                    </table>
+                </div>
             </div>
         </>
     );

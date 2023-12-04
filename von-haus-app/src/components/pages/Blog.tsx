@@ -76,7 +76,7 @@ const Blog: React.FC = () => {
                                             <div className="mb-2 mt-1 text-muted">Fecha: {dateString}</div>
                                             <h3 className="mb-1">{subtitulo.substring(0, 200) + "..."}</h3>
                                             <div className='card-text' dangerouslySetInnerHTML={{ __html: texto.substring(0, 150) + "..." }} />
-                                            <Link className='button is-link' to={`/detalle?id_articulo=${_id}`}>Leer +</Link>
+                                            <Link className='button is-link' to={`/detalle?id_articulo=${articlePops._id}`}>Leer +</Link>
                                         </div>
 
                                         <div className="col-auto d-none d-lg-block">

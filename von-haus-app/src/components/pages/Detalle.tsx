@@ -1,15 +1,16 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { Article } from '../types/Types';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 
 const Detalle: React.FC = () => {
-    let query = new URLSearchParams(window.location.search);
-    let id_articulo = query.get('id_articulo');
+    const location = useLocation();
+    let query = new URLSearchParams(location.search);
+    let _id = query.get('id_articulo');
     const [articulo, setArticulo] = useState<Article>();
 
     useEffect(() => {
-        const endpoint = `https://von-haus-data-backend.onrender.com/articulos/${id_articulo}`;
+        const endpoint = `https://von-haus-data-backend.onrender.com/articulos/${_id}`;
         const fetchData = async () => {
             await axios.get(endpoint).then((response) => {
                 const data = response.data;
@@ -20,7 +21,7 @@ const Detalle: React.FC = () => {
         }
 
         fetchData();
-    }, []);
+    }, [_id]);
 
 
     return (

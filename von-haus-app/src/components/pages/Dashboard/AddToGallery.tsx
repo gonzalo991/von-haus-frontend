@@ -59,7 +59,7 @@ const AddToGallery: React.FC = () => {
                 // Registra en la consola y redirige a la página principal
                 window.alert(`Se cargó el articulo correctamente`);
             }
-        } 
+        }
     };
 
     return (
@@ -67,7 +67,7 @@ const AddToGallery: React.FC = () => {
             <h1 className="mb-3 text-center admin-title">Publicar en Galería</h1>
 
             <div className="container ms-5 mt-5">
-                <form className="mt-5 m-auto w-75 add-form" onSubmit={handleSubmit}>
+                <form className="mt-5 m-auto w-75 add-form col-md-8 col-sm-12" onSubmit={handleSubmit}>
                     {/* Campos del formulario */}
                     <div className="mb-3">
                         <label className="form-label">Titulo</label>

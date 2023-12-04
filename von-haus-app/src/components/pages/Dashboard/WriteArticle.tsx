@@ -73,42 +73,44 @@ const WriteArticle: React.FC = () => {
     // Renderiza el formulario para crear un artículo
     return (
         <div className="container mt-5 mb-5">
-            <h1 className='mb-3 text-center admin-title'>Publicar un Artículo</h1>
+            <h1 className="mx-auto mb-3 text-center px-auto admin-title">Publicar un Artículo</h1>
 
-            <div className='container ms-5'>
-                <form className='mt-5 m-auto w-75 add-form' onSubmit={handleSubmit}>
+            <div className="container me-3">
+                <form className="mt-5 m-auto w-75 add-form col-md-8 col-sm-12" onSubmit={handleSubmit}>
                     {/* Campos del formulario */}
                     <div className="mb-3">
                         <label className="form-label">Titulo</label>
-                        <input type="text" className="form-control" placeholder="Título del Artículo" name='titulo' />
+                        <input type="text" className="form-control" placeholder="Título del Artículo" name="titulo" />
                     </div>
 
                     <div className="mb-3">
                         <label className="form-label">Subtítulo</label>
-                        <input type="text" className="form-control" placeholder="Subtítulo del Artículo" name='subtitulo' />
+                        <input type="text" className="form-control" placeholder="Subtítulo del Artículo" name="subtitulo" />
                     </div>
 
                     <div className="mb-3">
                         <label className="form-label">Imagen:</label>
-                        <input className="form-control" type="file" id="formFile" name='image' />
+                        <input className="form-control" type="file" id="formFile" name="image" />
                     </div>
 
-                    <div className='mb-3'>
+                    <div className="mb-3">
                         {/* Editor de texto React Quill */}
                         <label className="form-label">Contenido:</label>
                         <ReactQuill
                             onChange={handleEditorChange}
                             value={texto}
-                            className='mb-5' // Agregado un espacio inferior al editor
+                            className="mb-3" // Eliminado espacio inferior
                             modules={modules}
                             formats={formats}
-                            style={{ height: '9rem' }} // Ajusta la altura según tus necesidades
+                            style={{ minHeight: '150px' }} // Establecer minHeight en lugar de altura fija
                         />
                     </div>
 
-                    <div className='d-flex justify-content-center mt-3'>
+                    <div className="d-flex justify-content-center mt-3">
                         {/* Botón para enviar el formulario */}
-                        <button className='btn btn-success mt-6' type="submit">Publicar Artículo</button>
+                        <button className="btn btn-success" type="submit">
+                            Publicar Artículo
+                        </button>
                     </div>
                 </form>
             </div>

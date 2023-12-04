@@ -67,13 +67,13 @@ const Galeria: React.FC = () => {
                     </div>
                 </section>
 
-                <div className="row mx-auto">
+                <div className="row mx-auto ms-1 me-3">
                     {
                         articulosActuales.map((gallery) => {
                             const { _id, titulo, image, descripcion, createdAt } = gallery;
 
                             return (
-                                <div key={_id} className="card mt-5 mb-5 ms-4 col-4" style={{ width: 400, height: 550 }}>
+                                <div key={_id} className="card mt-5 mb-5 ms-1 me-1 col-4" style={{ width: 400, height: 550 }}>
                                     <div className="card-image">
                                         <figure className="image is-4by3">
                                             <img

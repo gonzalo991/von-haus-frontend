@@ -30,7 +30,7 @@ const Servicios: React.FC = () => {
                     <div className='d-flex align-items-center justify-content-center mt-5 mb-3 col-md-6 col-sm-12'>
                         <img className='home-vision-img mx-auto' src={imgAdiestramiento}
                             alt='adiestramiento canino'
-                            style={{ borderRadius: "50%", height: "80vh", width: "50vw" }}
+                            style={{ borderRadius: "50%", height: "70vh", width: "100vw" }}
                         />
                     </div>
                 </div>
@@ -41,7 +41,7 @@ const Servicios: React.FC = () => {
                     <div className='d-flex align-items-center justify-content-center mt-5 mb-3 col-md-6 col-sm-12'>
                         <img className='home-vision-img mx-auto' src={imgEscuela}
                             alt='adiestramiento canino'
-                            style={{ borderRadius: "50%", height: "80vh", width: "50vw" }}
+                            style={{ borderRadius: "50%", height: "70vh", width: "100vw" }}
                         />
                     </div>
                     <div className="col-md-6 col-sm12">
@@ -70,7 +70,7 @@ const Servicios: React.FC = () => {
                     <div className='d-flex align-items-center justify-content-center mt-5 mb-3 col-md-6 col-sm-12'>
                         <img className='home-vision-img mx-auto' src={imgEjemplares}
                             alt='adiestramiento canino'
-                            style={{ borderRadius: "50%", height: "80vh", width: "50vw" }}
+                            style={{ borderRadius: "50%", height: "70vh", width: "100vw" }}
                         />
                     </div>
                 </div>
