@@ -137,8 +137,7 @@ Este proyecto está bajo la Licencia (Tu Licencia) - mira el archivo [LICENSE.md
 
 ## Agradecimientos a: 🎁
 
-* Comenta a otros sobre este proyecto 📢
-* Especiales agradecimiento a Emanuel Caro, fundador del criadero de pastores alemanes Von Haus Lola Mora por permitirme realizar este proyecto para su negocio 🤓.
+* Especiales agradecimientos a Emanuel Caro, fundador del criadero de pastores alemanes Von Haus Lola Mora por permitirme realizar este proyecto para su negocio 🤓.
 
 ---
 ⌨️ con ❤️ por [Oscar Gonzalo Araya](https://github.com/gonzalo991) 😊
